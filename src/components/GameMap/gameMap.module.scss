@@ -1,0 +1,117 @@
+$cellWidth: 150px;
+$cellHeight: 150px;
+$cellBorder: 1px solid black;
+
+.cell {
+  position: absolute;
+  background: none;
+  border-top: $cellBorder;
+  border-left: $cellBorder;
+  border-right: 0;
+  border-bottom: 0;
+  width: $cellWidth;
+  height: $cellHeight;
+  cursor: pointer;
+
+  &__a0 {
+    top: 0;
+    left: #{$cellWidth * 1.5};
+    border-right: $cellBorder;
+  }
+
+  &__a1 {
+    top: 0;
+    left: #{$cellWidth * 4.5};
+    border-right: $cellBorder;
+  }
+
+  @for $i from 0 to 6 {
+    &__b#{$i} {
+      top: $cellHeight;
+      left: #{($i + 1) * $cellWidth};
+
+      @if ($i == 5) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  @for $i from 0 to 7 {
+    &__c#{$i} {
+      top: $cellHeight * 2;
+      left: #{($i + .5) * $cellWidth};
+
+      @if ($i == 6) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  @for $i from 0 to 8 {
+    &__d#{$i} {
+      top: $cellHeight * 3;
+      left: #{$i * $cellWidth};
+
+      @if ($i == 7) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  @for $i from 0 to 7 {
+    &__e#{$i} {
+      top: $cellHeight * 4;
+      left: #{($i + .5) * $cellWidth};
+
+      @if ($i == 6) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  @for $i from 0 to 7 {
+    &__f#{$i} {
+      top: $cellHeight * 5;
+      left: #{$i * $cellWidth};
+
+      @if ($i == 6) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  @for $i from 0 to 7 {
+    &__g#{$i} {
+      top: $cellHeight * 6;
+      left: #{($i + .5) * $cellWidth};
+
+      @if ($i == 6) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  @for $i from 0 to 8 {
+    &__h#{$i} {
+      top: $cellHeight * 7;
+      left: #{$i * $cellWidth};
+
+      @if ($i == 7) {
+        border-right: $cellBorder;
+      }
+    }
+  }
+
+  &__i0 {
+    top: #{$cellHeight * 8};
+    left: #{2.5 * $cellWidth};
+    border-bottom: $cellBorder;
+  }
+
+  &__i1 {
+    top: #{$cellHeight * 8};
+    left: #{3.5 * $cellWidth};
+    border-bottom: $cellBorder;
+    border-right: $cellBorder;
+  }
+}
