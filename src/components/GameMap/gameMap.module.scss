@@ -13,6 +13,10 @@ $cellBorder: 1px solid black;
   height: $cellHeight;
   cursor: pointer;
 
+  &--isInteractive {
+    background-color: rgba(green, .2);
+  }
+
   &__a0 {
     top: 0;
     left: #{$cellWidth * 1.5};

@@ -1,172 +1,232 @@
 export default {
   a0: {
-    type: 'base'
+    type: 'base',
+    resources: []
   },
   a1: {
-    type: 'base'
+    type: 'base',
+    owner: 'nordic',
+    units: ['hero'],
+    resources: []
   },
 
   b0: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   b1: {
-    type: 'food'
+    type: 'food',
+    resources: []
   },
   b2: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   b3: {
-    type: 'wood'
+    type: 'wood',
+    owner: 'nordic',
+    units: ['worker'],
+    resources: []
   },
   b4: {
-    type: 'oil'
+    type: 'oil',
+    owner: 'nordic',
+    units: ['worker'],
+    resources: []
   },
   b5: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
 
   c0: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   c1: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
   c2: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   c3: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
   c4: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   c5: {
-    type: 'food'
+    type: 'food',
+    resources: []
   },
   c6: {
-    type: 'food'
+    type: 'food',
+    resources: []
   },
 
   d0: {
-    type: 'base'
+    type: 'base',
+    resources: []
   },
   d1: {
-    type: 'wood'
+    type: 'wood',
+    resources: []
   },
   d2: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   d3: {
-    type: 'wood'
+    type: 'wood',
+    resources: []
   },
   d4: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   d5: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   d6: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   d7: {
-    type: 'base'
+    type: 'base',
+    resources: []
   },
 
   e0: {
-    type: 'food'
+    type: 'food',
+    resources: []
   },
   e1: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   e2: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   e3: {
-    type: 'factory'
+    type: 'factory',
+    resources: []
   },
   e4: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   e5: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
   e6: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
 
   f0: {
-    type: 'wood'
+    type: 'wood',
+    resources: []
   },
   f1: {
-    type: 'wood'
+    type: 'wood',
+    resources: []
   },
   f2: {
-    type: 'food'
+    type: 'food',
+    resources: []
   },
   f3: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
   f4: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   f5: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   f6: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   
   g0: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   g1: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   g2: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   g3: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
   g4: {
-    type: 'wood'
+    type: 'wood',
+    resources: []
   },
   g5: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   g6: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
 
   h0: {
-    type: 'base'
+    type: 'base',
+    resources: []
   },
   h1: {
-    type: 'oil'
+    type: 'oil',
+    resources: []
   },
   h2: {
-    type: 'lake'
+    type: 'lake',
+    resources: []
   },
   h3: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   h4: {
-    type: 'iron'
+    type: 'iron',
+    resources: []
   },
   h5: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
   h6: {
-    type: 'food'
+    type: 'food',
+    resources: []
   },
   h7: {
-    type: 'base'
+    type: 'base',
+    resources: []
   },
 
   i0: {
-    type: 'base'
+    type: 'base',
+    resources: []
   },
   i1: {
-    type: 'farm'
+    type: 'farm',
+    resources: []
   },
 }
