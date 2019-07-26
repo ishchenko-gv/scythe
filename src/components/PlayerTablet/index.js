@@ -4,6 +4,7 @@ import styles from './playerTablet.module.scss';
 import Producing from './Producing';
 import MechDeploy from './MechDeploy';
 import Movement from './Movement';
+import PlayerInfo from './PlayerInfo';
 
 const PlayerTablet = () => {
   return (
@@ -12,6 +13,7 @@ const PlayerTablet = () => {
       <Producing />
       <MechDeploy />
       <Movement />
+      <PlayerInfo />
     </div>
   );
 };

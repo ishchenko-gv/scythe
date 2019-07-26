@@ -11,10 +11,11 @@ $cellBorder: 1px solid black;
   border-bottom: 0;
   width: $cellWidth;
   height: $cellHeight;
-  cursor: pointer;
+  user-select: none;
 
   &--isInteractive {
     background-color: rgba(green, 0.2);
+    cursor: pointer;
   }
 
   &__a0 {

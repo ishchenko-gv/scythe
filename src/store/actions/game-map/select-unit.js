@@ -1,20 +1,17 @@
 import { updateCells, resetCellsInteractivity, setSelectedUnit } from './index';
 
-const selectUnit = (cellId, unitIndex) => (dispatch, getState) => {
+const selectUnit = unit => (dispatch, getState) => {
   const state = getState();
   const { phase } = state.gameBoard;
+  const { currentPlayer } = state.gameBoard;
+  const { movementPoints } = state.players[currentPlayer].tablet;
 
-  if (phase !== 'movement') return;
+  if (phase !== 'movement' || !movementPoints) return;
 
   dispatch(resetCellsInteractivity());
-  dispatch(
-    setSelectedUnit({
-      cellId,
-      index: unitIndex
-    })
-  );
+  dispatch(setSelectedUnit(unit));
   const { cells } = state.gameMap;
-  const neigborCells = cells[cellId].neighborCells;
+  const neigborCells = cells[unit.cellId].neighborCells;
   const dataToUpdate = neigborCells.reduce((acc, id) => {
     acc[id] = { isInteractive: true };
     return acc;

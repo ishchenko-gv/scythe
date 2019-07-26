@@ -71,6 +71,33 @@ const gameMap = (state = initialState, action) => {
         cells: updatedCells
       };
     }
+    case actionTypes.REMOVE_UNIT: {
+      console.log(action.cellId, state.cells);
+      return {
+        ...state,
+        cells: {
+          ...state.cells,
+          [action.cellId]: {
+            ...state.cells[action.cellId],
+            units: state.cells[action.cellId].units.filter(
+              (unit, index) => index !== action.unitIndex
+            )
+          }
+        }
+      };
+    }
+    case actionTypes.ADD_UNIT: {
+      return {
+        ...state,
+        cells: {
+          ...state.cells,
+          [action.cellId]: {
+            ...state.cells[action.cellId],
+            units: [...state.cells[action.cellId].units, action.unit]
+          }
+        }
+      };
+    }
     default:
       return state;
   }

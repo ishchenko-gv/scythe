@@ -1,7 +1,8 @@
 export default {
   a0: {
     type: 'base',
-    resources: []
+    resources: [],
+    units: []
   },
   a1: {
     type: 'base',
@@ -12,15 +13,18 @@ export default {
 
   b0: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   b1: {
     type: 'food',
-    resources: []
+    resources: [],
+    units: []
   },
   b2: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   b3: {
     type: 'wood',
@@ -38,197 +42,244 @@ export default {
   },
   b5: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
 
   c0: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
   c1: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
   c2: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
   c3: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
   c4: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   c5: {
     type: 'food',
-    resources: []
+    resources: [],
+    units: []
   },
   c6: {
     type: 'food',
-    resources: []
+    resources: [],
+    units: []
   },
 
   d0: {
     type: 'base',
-    resources: []
+    resources: [],
+    units: []
   },
   d1: {
     type: 'wood',
-    resources: []
+    resources: [],
+    units: []
   },
   d2: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   d3: {
     type: 'wood',
-    resources: []
+    resources: [],
+    units: []
   },
   d4: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
   d5: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   d6: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   d7: {
     type: 'base',
-    resources: []
+    resources: [],
+    units: []
   },
 
   e0: {
     type: 'food',
-    resources: []
+    resources: [],
+    units: []
   },
   e1: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   e2: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
   e3: {
     type: 'factory',
-    resources: []
+    resources: [],
+    units: []
   },
   e4: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   e5: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
   e6: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
 
   f0: {
     type: 'wood',
-    resources: []
+    resources: [],
+    units: []
   },
   f1: {
     type: 'wood',
-    resources: []
+    resources: [],
+    units: []
   },
   f2: {
     type: 'food',
-    resources: []
+    resources: [],
+    units: []
   },
   f3: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
   f4: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
   f5: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   f6: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
 
   g0: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   g1: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   g2: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   g3: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
   g4: {
     type: 'wood',
-    resources: []
+    resources: [],
+    units: []
   },
   g5: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   g6: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
 
   h0: {
     type: 'base',
-    resources: []
+    resources: [],
+    units: []
   },
   h1: {
     type: 'oil',
-    resources: []
+    resources: [],
+    units: []
   },
   h2: {
     type: 'lake',
-    resources: []
+    resources: [],
+    units: []
   },
   h3: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   h4: {
     type: 'iron',
-    resources: []
+    resources: [],
+    units: []
   },
   h5: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   },
   h6: {
     type: 'food',
-    resources: []
+    resources: [],
+    units: []
   },
   h7: {
     type: 'base',
-    resources: []
+    resources: [],
+    units: []
   },
 
   i0: {
     type: 'base',
-    resources: []
+    resources: [],
+    units: []
   },
   i1: {
     type: 'farm',
-    resources: []
+    resources: [],
+    units: []
   }
 };
