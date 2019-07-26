@@ -5,7 +5,8 @@ import cells from './cells';
 import getInteractiveCellIds from './get-interactive-cell-ids';
 
 const initialState = {
-  cells
+  cells,
+  selectedUnit: null
 };
 
 const gameMap = (state = initialState, action) => {
@@ -43,11 +44,31 @@ const gameMap = (state = initialState, action) => {
         }
       };
     case actionTypes.UPDATE_CELLS: {
-      console.log(action.data);
       const cells = deepmerge(state.cells, action.data);
       return {
         ...state,
         cells
+      };
+    }
+    case actionTypes.SET_SELECTED_UNIT: {
+      return {
+        ...state,
+        selectedUnit: action.selectedUnit
+      };
+    }
+    case actionTypes.RESET_CELLS_INTERACTIVITY: {
+      const updatedCells = Object.keys(state.cells).reduce((acc, item) => {
+        acc[item] = {
+          ...state.cells[item],
+          isInteractive: false
+        };
+
+        return acc;
+      }, {});
+
+      return {
+        ...state,
+        cells: updatedCells
       };
     }
     default:

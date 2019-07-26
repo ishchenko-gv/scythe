@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
 import processCell from '../../store/actions/game-map/process-cell';
+import selectUnit from '../../store/actions/game-map/select-unit';
 
 const mapState = (state, ownProps) => ({
   units: state.gameMap.cells[ownProps.id].units,
@@ -12,7 +13,8 @@ const mapState = (state, ownProps) => ({
 });
 
 const mapDispatch = dispatch => ({
-  onCellProcess: id => dispatch(processCell(id))
+  onCellProcess: id => dispatch(processCell(id)),
+  onUnitSelect: (cellId, unitIndex) => dispatch(selectUnit(cellId, unitIndex))
 });
 
 const types = {
@@ -33,18 +35,31 @@ const Cell = ({
   resources,
   owner,
   isInteractive,
-  onCellProcess
+  onCellProcess,
+  onUnitSelect
 }) => {
   const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
     isInteractive ? styles['cell--isInteractive'] : ''
   }`;
 
+  console.log('cell render');
+
+  const handleResourceClick = useCallback(() => {
+    if (!isInteractive) return;
+    onCellProcess(id);
+  }, [isInteractive, id, onCellProcess]);
+
   return (
-    <div onClick={() => onCellProcess(id)} className={classNames}>
-      {types[type]}
+    <div className={classNames}>
+      <div onClick={handleResourceClick}>{types[type]}</div>
       <br />
       {owner}
-      <ul>{units && units.map(unit => <li>{unit}</li>)}</ul>
+      <ul>
+        {units &&
+          units.map((unit, index) => (
+            <li onClick={() => onUnitSelect(id, index)}>{unit}</li>
+          ))}
+      </ul>
       <ul>
         {resources.map(resource => (
           <li>{resource}</li>

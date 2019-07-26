@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import updateCellsData from '../../store/actions/game-map/update-cells-data';
+import updateCellsInteractionForProducing from '../../store/actions/game-map/update-cells-interaction-for-producing';
 
 const mapState = state => ({
   phase: state.gameBoard.phase,
@@ -9,7 +9,7 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
-  onCellsDataUpdate: () => dispatch(updateCellsData())
+  onCellsDataUpdate: () => dispatch(updateCellsInteractionForProducing())
 });
 
 const PhaseObserver = ({ onCellsDataUpdate }) => {

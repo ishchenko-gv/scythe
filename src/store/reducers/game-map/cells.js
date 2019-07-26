@@ -26,13 +26,15 @@ export default {
     type: 'wood',
     owner: 'nordic',
     units: ['worker'],
-    resources: []
+    resources: [],
+    neighborCells: ['a1', 'b2', 'b4', 'c3', 'c4']
   },
   b4: {
     type: 'oil',
     owner: 'nordic',
     units: ['worker'],
-    resources: []
+    resources: [],
+    neighborCells: ['a1', 'b3', 'b5', 'c4', 'c5']
   },
   b5: {
     type: 'farm',
