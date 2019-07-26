@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
-import processCell from '../../store/actions/game-map/process-cell';
+import produceResources from '../../store/actions/game-map/produce-resources';
 import selectUnit from '../../store/actions/game-map/select-unit';
 import moveUnit from '../../store/actions/game-map/move-unit';
 
@@ -14,7 +14,7 @@ const mapState = (state, ownProps) => ({
 });
 
 const mapDispatch = dispatch => ({
-  onCellProcess: id => dispatch(processCell(id)),
+  onResourcesProduce: id => dispatch(produceResources(id)),
   onUnitSelect: unit => dispatch(selectUnit(unit)),
   onUnitMove: id => dispatch(moveUnit(id))
 });
@@ -37,7 +37,7 @@ const Cell = ({
   resources,
   owner,
   isInteractive,
-  onCellProcess,
+  onResourcesProduce,
   onUnitSelect,
   onUnitMove
 }) => {
@@ -49,8 +49,8 @@ const Cell = ({
 
   const handleResourceClick = useCallback(() => {
     if (!isInteractive) return;
-    onCellProcess(id);
-  }, [isInteractive, onCellProcess, id]);
+    onResourcesProduce(id);
+  }, [isInteractive, onResourcesProduce, id]);
 
   const handleCellClick = useCallback(() => {
     if (!isInteractive) return;
