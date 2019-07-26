@@ -10,7 +10,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   onCellsDataUpdate: () => dispatch(updateCellsData())
-})
+});
 
 const PhaseObserver = ({ onCellsDataUpdate }) => {
   useEffect(() => {
@@ -20,4 +20,7 @@ const PhaseObserver = ({ onCellsDataUpdate }) => {
   return null;
 };
 
-export default connect(mapState, mapDispatch)(PhaseObserver);
+export default connect(
+  mapState,
+  mapDispatch
+)(PhaseObserver);

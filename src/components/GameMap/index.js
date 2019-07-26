@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Cell from './Cell'
+import Cell from './Cell';
 
 const mapState = state => ({
   mapCells: state.gameMap.cells
-})
+});
 
 const GameMap = ({ mapCells }) => {
   return (

@@ -14,7 +14,7 @@ $cellBorder: 1px solid black;
   cursor: pointer;
 
   &--isInteractive {
-    background-color: rgba(green, .2);
+    background-color: rgba(green, 0.2);
   }
 
   &__a0 {
@@ -43,7 +43,7 @@ $cellBorder: 1px solid black;
   @for $i from 0 to 7 {
     &__c#{$i} {
       top: $cellHeight * 2;
-      left: #{($i + .5) * $cellWidth};
+      left: #{($i + 0.5) * $cellWidth};
 
       @if ($i == 6) {
         border-right: $cellBorder;
@@ -65,7 +65,7 @@ $cellBorder: 1px solid black;
   @for $i from 0 to 7 {
     &__e#{$i} {
       top: $cellHeight * 4;
-      left: #{($i + .5) * $cellWidth};
+      left: #{($i + 0.5) * $cellWidth};
 
       @if ($i == 6) {
         border-right: $cellBorder;
@@ -87,7 +87,7 @@ $cellBorder: 1px solid black;
   @for $i from 0 to 7 {
     &__g#{$i} {
       top: $cellHeight * 6;
-      left: #{($i + .5) * $cellWidth};
+      left: #{($i + 0.5) * $cellWidth};
 
       @if ($i == 6) {
         border-right: $cellBorder;

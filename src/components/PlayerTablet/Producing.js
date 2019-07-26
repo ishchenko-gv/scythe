@@ -12,7 +12,10 @@ const Producing = ({ onPhaseSet }) => {
     <div>
       <button onClick={onPhaseSet}>Производство</button>
     </div>
-  )
-}
+  );
+};
 
-export default connect(null, mapDispatch)(Producing);
+export default connect(
+  null,
+  mapDispatch
+)(Producing);

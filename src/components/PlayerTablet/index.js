@@ -9,7 +9,7 @@ const PlayerTablet = () => {
       tablet
       <Producing />
     </div>
-  )
-}
+  );
+};
 
 export default PlayerTablet;

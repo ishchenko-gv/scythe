@@ -7,20 +7,20 @@ const produceResources = cellId => (dispatch, getState) => {
   const producePoints = state.players[playerId].tablet.producePoints;
 
   if (!producePoints) return;
-  
+
   const cellType = state.gameMap.cells[cellId].type;
-  const workersCount = state.gameMap.cells[cellId].units
-    .filter(unit => unit === 'worker')
-    .length;
+  const workersCount = state.gameMap.cells[cellId].units.filter(
+    unit => unit === 'worker'
+  ).length;
   const producedResources = Array(workersCount).fill(cellType);
   const dataToUpdate = {
     [cellId]: {
       resources: producedResources
     }
-  }
+  };
 
   dispatch(decrementProducePoints(playerId));
   dispatch(updateCells(dataToUpdate));
-}
+};
 
 export default produceResources;

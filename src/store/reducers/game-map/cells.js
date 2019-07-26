@@ -158,7 +158,7 @@ export default {
     type: 'lake',
     resources: []
   },
-  
+
   g0: {
     type: 'iron',
     resources: []
@@ -228,5 +228,5 @@ export default {
   i1: {
     type: 'farm',
     resources: []
-  },
-}
+  }
+};

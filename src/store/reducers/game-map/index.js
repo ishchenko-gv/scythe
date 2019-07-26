@@ -6,17 +6,20 @@ import getInteractiveCellIds from './get-interactive-cell-ids';
 
 const initialState = {
   cells
-}
+};
 
 const gameMap = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_CELLS_INTERACTIVITY:
-      const interactiveCellIds = getInteractiveCellIds(state.cells, action.currentPlayerId);
+      const interactiveCellIds = getInteractiveCellIds(
+        state.cells,
+        action.currentPlayerId
+      );
       const updatedCells = Object.keys(state.cells).reduce((acc, item) => {
         acc[item] = {
           ...state.cells[item],
           isInteractive: interactiveCellIds.includes(item)
-        }
+        };
 
         return acc;
       }, {});
@@ -24,7 +27,7 @@ const gameMap = (state = initialState, action) => {
       return {
         ...state,
         cells: updatedCells
-      }
+      };
     case actionTypes.ADD_RESOURCES:
       return {
         ...state,
@@ -32,7 +35,10 @@ const gameMap = (state = initialState, action) => {
           ...state.cells,
           [action.cellId]: {
             ...state.cells[action.cellId],
-            resources: [...state.cells[action.cellId].resources, ...action.resources]
+            resources: [
+              ...state.cells[action.cellId].resources,
+              ...action.resources
+            ]
           }
         }
       };
@@ -42,11 +48,11 @@ const gameMap = (state = initialState, action) => {
       return {
         ...state,
         cells
-      }
+      };
     }
-    default:  
+    default:
       return state;
   }
-}
+};
 
 export default gameMap;
