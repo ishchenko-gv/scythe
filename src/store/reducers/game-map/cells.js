@@ -148,7 +148,7 @@ export default {
     type: 'lake'
   },
   h3: {
-    type: 'faem'
+    type: 'farm'
   },
   h4: {
     type: 'iron'
