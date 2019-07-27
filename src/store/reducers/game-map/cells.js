@@ -3,311 +3,572 @@ export default {
     type: 'base',
     resources: [],
     units: [],
-    neighborCells: ['b0', 'b1']
+    neighborCells: [{ id: 'b0' }, { id: 'b1' }]
   },
   a1: {
     type: 'base',
     owner: 'nordic',
     units: ['hero'],
     resources: [],
-    neighborCells: ['b3', 'b4']
+    neighborCells: [{ id: 'b3' }, { id: 'b4' }]
   },
 
   b0: {
     type: 'iron',
     resources: [],
     units: [],
-    neighborCells: ['a0', 'b1', 'c0', 'c1']
+    neighborCells: [{ id: 'a0' }, { id: 'b1' }, { id: 'c0' }, { id: 'c1' }]
   },
   b1: {
     type: 'food',
     resources: [],
     units: [],
-    neighborCells: ['a0', 'b0', 'b2', 'c1', 'c2']
+    neighborCells: [
+      { id: 'a0' },
+      { id: 'b0' },
+      { id: 'b2' },
+      { id: 'c1' },
+      { id: 'c2' }
+    ]
   },
   b2: {
     type: 'farm',
     resources: [],
     units: [],
-    neighborCells: ['b1', 'b3', 'c2', 'c3']
+    neighborCells: [{ id: 'b1' }, { id: 'b3' }, { id: 'c2' }, { id: 'c3' }]
   },
   b3: {
     type: 'wood',
     owner: 'nordic',
     units: ['worker'],
     resources: [],
-    neighborCells: ['a1', 'b2', 'b4', 'c3', 'c4']
+    neighborCells: [
+      { id: 'a1' },
+      { id: 'b2' },
+      { id: 'b4' },
+      { id: 'c3' },
+      { id: 'c4' }
+    ]
   },
   b4: {
     type: 'oil',
     owner: 'nordic',
     units: ['worker'],
     resources: [],
-    neighborCells: ['a1', 'b3', 'b5', 'c4', 'c5']
+    neighborCells: [
+      { id: 'a1' },
+      { id: 'b3' },
+      { id: 'b5' },
+      { id: 'c4' },
+      { id: 'c5' }
+    ]
   },
   b5: {
     type: 'farm',
     resources: [],
     units: [],
-    neighborCells: ['b4', 'c5', 'c6']
+    neighborCells: [{ id: 'b4' }, { id: 'c5' }, { id: 'c6' }]
   },
 
   c0: {
     type: 'lake',
     resources: [],
     units: [],
-    neighborCells: ['b0', 'c1', 'd0', 'd1']
+    neighborCells: [{ id: 'b0' }, { id: 'c1' }, { id: 'd0' }, { id: 'd1' }]
   },
   c1: {
     type: 'oil',
     resources: [],
     units: [],
-    neighborCells: ['b0', 'b1', 'c0', 'c2', 'd1', 'd2']
+    neighborCells: [
+      { id: 'b0' },
+      { id: 'b1' },
+      { id: 'c0' },
+      { id: 'c2' },
+      { id: 'd1' },
+      { id: 'd2' }
+    ]
   },
   c2: {
     type: 'lake',
     resources: [],
     units: [],
-    neighborCells: ['b1', 'b2', 'c1', 'c3', 'd2', 'd3']
+    neighborCells: [
+      { id: 'b1' },
+      { id: 'b2' },
+      { id: 'c1' },
+      { id: 'c3' },
+      { id: 'd2' },
+      { id: 'd3' }
+    ]
   },
   c3: {
     type: 'oil',
     resources: [],
     units: [],
-    neighborCells: ['b2', 'b3', 'c2', 'c4', 'd3', 'd4']
+    neighborCells: [
+      { id: 'b2' },
+      { id: 'b3' },
+      { id: 'c2' },
+      { id: 'c4' },
+      { id: 'd3' },
+      { id: 'd4' }
+    ]
   },
   c4: {
     type: 'iron',
     resources: [],
     units: [],
-    neighborCells: ['b3', 'b4', 'c3', 'c5', 'd4', 'd5']
+    neighborCells: [
+      { id: 'b3' },
+      { id: 'b4' },
+      { id: 'c3' },
+      { id: 'c5' },
+      { id: 'd4' },
+      { id: 'd5' }
+    ]
   },
   c5: {
     type: 'food',
     resources: [],
     units: [],
-    neighborCells: ['b4', 'b5', 'c4', 'c6', 'd5', 'd6']
+    neighborCells: [
+      { id: 'b4' },
+      { id: 'b5' },
+      { id: 'c4' },
+      { id: 'c6' },
+      { id: 'd5' },
+      { id: 'd6' }
+    ]
   },
   c6: {
     type: 'food',
     resources: [],
     units: [],
-    neighborCells: ['b5', 'c5', 'd6', 'd7']
+    neighborCells: [{ id: 'b5' }, { id: 'c5' }, { id: 'd6' }, { id: 'd7' }]
   },
 
   d0: {
     type: 'base',
     resources: [],
     units: [],
-    neighborCells: ['c0', 'd1', 'e0']
+    neighborCells: [{ id: 'c0' }, { id: 'd1' }, { id: 'e0' }]
   },
   d1: {
     type: 'wood',
     resources: [],
     units: [],
-    neighborCells: ['c0', 'c1', 'd0', 'd2', 'e0', 'e1']
+    neighborCells: [
+      { id: 'c0' },
+      { id: 'c1' },
+      { id: 'd0' },
+      { id: 'd2' },
+      { id: 'e0' },
+      { id: 'e1' }
+    ]
   },
   d2: {
     type: 'iron',
     resources: [],
     units: [],
-    neighborCells: ['c1', 'c2', 'd1', 'd3', 'e1', 'e2']
+    neighborCells: [
+      { id: 'c1' },
+      { id: 'c2' },
+      { id: 'd1' },
+      { id: 'd3' },
+      { id: 'e1' },
+      { id: 'e2' }
+    ]
   },
   d3: {
     type: 'wood',
     resources: [],
     units: [],
-    neighborCells: ['c2', 'c3', 'd2', 'd4', 'e2', 'e3']
+    neighborCells: [
+      { id: 'c2' },
+      { id: 'c3' },
+      { id: 'd2' },
+      { id: 'd4' },
+      { id: 'e2' },
+      { id: 'e3' }
+    ]
   },
   d4: {
     type: 'lake',
     resources: [],
     units: [],
-    neighborCells: ['c3', 'c4', 'd3', 'd5', 'e3', 'e4']
+    neighborCells: [
+      { id: 'c3' },
+      { id: 'c4' },
+      { id: 'd3' },
+      { id: 'd5' },
+      { id: 'e3' },
+      { id: 'e4' }
+    ]
   },
   d5: {
     type: 'iron',
     resources: [],
     units: [],
-    neighborCells: ['c4', 'c5', 'd4', 'd6', 'e4', 'e5']
+    neighborCells: [
+      { id: 'c4' },
+      { id: 'c5' },
+      { id: 'd4' },
+      { id: 'd6' },
+      { id: 'e4' },
+      { id: 'e5' }
+    ]
   },
   d6: {
     type: 'farm',
     resources: [],
     units: [],
-    neighborCells: ['c5', 'c6', 'd5', 'd7', 'e5', 'e6']
+    neighborCells: [
+      { id: 'c5' },
+      { id: 'c6' },
+      { id: 'd5' },
+      { id: 'd7' },
+      { id: 'e5' },
+      { id: 'e6' }
+    ]
   },
   d7: {
     type: 'base',
     resources: [],
     units: [],
-    neighborCells: ['c6', 'd6', 'e6']
+    neighborCells: [{ id: 'c6' }, { id: 'd6' }, { id: 'e6' }]
   },
 
   e0: {
     type: 'food',
     resources: [],
     units: [],
-    neighborCells: ['d0', 'd1', 'e1', 'f0', 'f1']
+    neighborCells: [
+      { id: 'd0' },
+      { id: 'd1' },
+      { id: 'e1' },
+      { id: 'f0' },
+      { id: 'f1' }
+    ]
   },
   e1: {
     type: 'farm',
     resources: [],
     units: [],
-    neighborCells: ['d1', 'd2', 'e0', 'e2', 'f1', 'f2']
+    neighborCells: [
+      { id: 'd1' },
+      { id: 'd2' },
+      { id: 'e0' },
+      { id: 'e2' },
+      { id: 'f1' },
+      { id: 'f2' }
+    ]
   },
   e2: {
     type: 'lake',
     resources: [],
     units: [],
-    neighborCells: ['d2', 'd3', 'e1', 'e3', 'f2', 'f3']
+    neighborCells: [
+      { id: 'd2' },
+      { id: 'd3' },
+      { id: 'e1' },
+      { id: 'e3' },
+      { id: 'f2' },
+      { id: 'f3' }
+    ]
   },
   e3: {
     type: 'factory',
     resources: [],
     units: [],
-    neighborCells: ['d3', 'd4', 'e2', 'e4', 'f3', 'f4']
+    neighborCells: [
+      { id: 'd3' },
+      { id: 'd4' },
+      { id: 'e2' },
+      { id: 'e4' },
+      { id: 'f3' },
+      { id: 'f4' }
+    ]
   },
   e4: {
     type: 'iron',
     resources: [],
     units: [],
-    neighborCells: ['d4', 'd5', 'e3', 'e5', 'f4', 'f5']
+    neighborCells: [
+      { id: 'd4' },
+      { id: 'd5' },
+      { id: 'e3' },
+      { id: 'e5' },
+      { id: 'f4' },
+      { id: 'f5' }
+    ]
   },
   e5: {
     type: 'oil',
     resources: [],
     units: [],
-    neighborCells: ['d5', 'd6', 'e4', 'e6', 'f5', 'f6']
+    neighborCells: [
+      { id: 'd5' },
+      { id: 'd6' },
+      { id: 'e4' },
+      { id: 'e6' },
+      { id: 'f5' },
+      { id: 'f6' }
+    ]
   },
   e6: {
     type: 'iron',
     resources: [],
     units: [],
-    neighborCells: ['d6', 'd7', 'e5', 'f6']
+    neighborCells: [{ id: 'd6' }, { id: 'd7' }, { id: 'e5' }, { id: 'f6' }]
   },
 
   f0: {
     type: 'wood',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'e0' }, { id: 'f1' }, { id: 'g0' }]
   },
   f1: {
     type: 'wood',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'e0' },
+      { id: 'e1' },
+      { id: 'f0' },
+      { id: 'f2' },
+      { id: 'g0' },
+      { id: 'g1' }
+    ]
   },
   f2: {
     type: 'food',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'e1' },
+      { id: 'e2' },
+      { id: 'f1' },
+      { id: 'f3' },
+      { id: 'g1' },
+      { id: 'g2' }
+    ]
   },
   f3: {
     type: 'oil',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'e2' },
+      { id: 'e3' },
+      { id: 'f2' },
+      { id: 'f4' },
+      { id: 'g2' },
+      { id: 'g3' }
+    ]
   },
   f4: {
     type: 'lake',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'e3' },
+      { id: 'e4' },
+      { id: 'f3' },
+      { id: 'f5' },
+      { id: 'g3' },
+      { id: 'g4' }
+    ]
   },
   f5: {
     type: 'farm',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'e4' },
+      { id: 'e5' },
+      { id: 'f4' },
+      { id: 'f6' },
+      { id: 'g4' },
+      { id: 'g5' }
+    ]
   },
   f6: {
     type: 'lake',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'e5' },
+      { id: 'e6' },
+      { id: 'f6' },
+      { id: 'g5' },
+      { id: 'g6' }
+    ]
   },
 
   g0: {
     type: 'iron',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'f0' },
+      { id: 'f1' },
+      { id: 'g1' },
+      { id: 'h0' },
+      { id: 'h1' }
+    ]
   },
   g1: {
     type: 'farm',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'f1' },
+      { id: 'f2' },
+      { id: 'g0' },
+      { id: 'g2' },
+      { id: 'h1' },
+      { id: 'h2' }
+    ]
   },
   g2: {
     type: 'farm',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'f2' },
+      { id: 'f3' },
+      { id: 'g1' },
+      { id: 'g3' },
+      { id: 'h2' },
+      { id: 'h3' }
+    ]
   },
   g3: {
     type: 'oil',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'f3' },
+      { id: 'f4' },
+      { id: 'g2' },
+      { id: 'g4' },
+      { id: 'h3' },
+      { id: 'h4' }
+    ]
   },
   g4: {
     type: 'wood',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'f4' },
+      { id: 'f5' },
+      { id: 'g3' },
+      { id: 'g5' },
+      { id: 'h4' },
+      { id: 'h5' }
+    ]
   },
   g5: {
     type: 'iron',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'f5' },
+      { id: 'f6' },
+      { id: 'g4' },
+      { id: 'g6' },
+      { id: 'h5' },
+      { id: 'h6' }
+    ]
   },
   g6: {
     type: 'oil',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'f6' }, { id: 'g5' }, { id: 'h6' }, { id: 'h7' }]
   },
 
   h0: {
     type: 'base',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'g0' }, { id: 'h1' }]
   },
   h1: {
     type: 'oil',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'g0' }, { id: 'g1' }, { id: 'h0' }, { id: 'h2' }]
   },
   h2: {
     type: 'lake',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'g1' },
+      { id: 'g2' },
+      { id: 'h1' },
+      { id: 'h3' },
+      { id: 'i0' }
+    ]
   },
   h3: {
     type: 'farm',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'g2' },
+      { id: 'g3' },
+      { id: 'h2' },
+      { id: 'h4' },
+      { id: 'i0' },
+      { id: 'i1' }
+    ]
   },
   h4: {
     type: 'iron',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [
+      { id: 'g3' },
+      { id: 'g4' },
+      { id: 'h3' },
+      { id: 'h5' },
+      { id: 'i1' }
+    ]
   },
   h5: {
     type: 'farm',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'g4' }, { id: 'g5' }, { id: 'h4' }, { id: 'h6' }]
   },
   h6: {
     type: 'food',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'g5' }, { id: 'g6' }, { id: 'h5' }, { id: 'h7' }]
   },
   h7: {
     type: 'base',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'g6' }, { id: 'h6' }]
   },
 
   i0: {
     type: 'base',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'h2' }, { id: 'h3' }, { id: 'i1' }]
   },
   i1: {
     type: 'farm',
     resources: [],
-    units: []
+    units: [],
+    neighborCells: [{ id: 'h3' }, { id: 'h4' }, { id: 'i0' }]
   }
 };

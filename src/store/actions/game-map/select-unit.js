@@ -12,8 +12,8 @@ const selectUnit = unit => (dispatch, getState) => {
   dispatch(setSelectedUnit(unit));
   const { cells } = state.gameMap;
   const neigborCells = cells[unit.cellId].neighborCells;
-  const dataToUpdate = neigborCells.reduce((acc, id) => {
-    acc[id] = { isInteractive: true };
+  const dataToUpdate = neigborCells.reduce((acc, cell) => {
+    acc[cell.id] = { isInteractive: true };
     return acc;
   }, {});
   dispatch(updateCells(dataToUpdate));
