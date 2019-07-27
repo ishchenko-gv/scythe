@@ -4,7 +4,7 @@ import { updateCells, resetCellsInteractivity } from '../../actions/game-map';
 const produceResources = cellId => (dispatch, getState) => {
   const state = getState();
   const playerId = state.gameBoard.currentPlayer;
-  const producePoints = state.players[playerId].tablet.producePoints;
+  const producePoints = state.players[playerId].producePoints;
 
   if (!producePoints) return;
 

@@ -4,9 +4,9 @@ const selectUnit = unit => (dispatch, getState) => {
   const state = getState();
   const { phase } = state.gameBoard;
   const { currentPlayer } = state.gameBoard;
-  const { movementPoints } = state.players[currentPlayer].tablet;
+  const { movementPoints } = state.players[currentPlayer];
 
-  // if (phase !== 'movement' || !movementPoints) return;
+  if (phase !== 'movement' || !movementPoints) return;
 
   dispatch(resetCellsInteractivity());
   dispatch(setSelectedUnit(unit));

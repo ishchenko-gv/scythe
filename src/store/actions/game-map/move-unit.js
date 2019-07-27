@@ -11,9 +11,12 @@ const moveUnit = destinationCellId => (dispatch, getState) => {
   const state = getState();
   const { selectedUnit } = state.gameMap;
   const { cells } = state.gameMap;
+
+  if (!selectedUnit) return;
+
   const sourceCellId = selectedUnit.cellId;
 
-  if (!selectedUnit || destinationCellId === sourceCellId) return;
+  if (destinationCellId === sourceCellId) return;
 
   const { currentPlayer } = state.gameBoard;
   const sourceCellUnitsCount = cells[sourceCellId].units.length;
