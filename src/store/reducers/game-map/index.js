@@ -16,6 +16,7 @@ const gameMap = (state = initialState, action) => {
 
         return acc;
       }, {});
+      
       return {
         ...state,
         cells: {

@@ -6,7 +6,7 @@ const selectUnit = unit => (dispatch, getState) => {
   const { currentPlayer } = state.gameBoard;
   const { movementPoints } = state.players[currentPlayer].tablet;
 
-  if (phase !== 'movement' || !movementPoints) return;
+  // if (phase !== 'movement' || !movementPoints) return;
 
   dispatch(resetCellsInteractivity());
   dispatch(setSelectedUnit(unit));
