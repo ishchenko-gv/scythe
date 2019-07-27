@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setPhase } from '../../store/actions/game-board';
+import setProducingPhase from '../../store/actions/game-board/set-producing-phase';
 
 const mapDispatch = dispatch => ({
-  onPhaseSet: () => dispatch(setPhase('producing'))
+  onPhaseSet: () => dispatch(setProducingPhase())
 });
 
 const Producing = ({ onPhaseSet }) => {

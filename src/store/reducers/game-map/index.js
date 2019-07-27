@@ -35,11 +35,13 @@ const gameMap = (state = initialState, action) => {
 
       return {
         ...state,
-        cells: updatedCells
+        cells: {
+          ...state.cells,
+          ...updatedCells
+        }
       };
     }
     case actionTypes.REMOVE_UNIT: {
-      console.log(action.cellId, state.cells);
       return {
         ...state,
         cells: {

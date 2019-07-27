@@ -1,11 +1,12 @@
-import { updateCells } from './index';
+import { updateCells } from '../game-map';
+import { setPhase } from '../game-board';
 
-const updateCellsInteractionForProducing = () => (dispatch, getState) => {
+const setProducingPhase = () => (dispatch, getState) => {
   const state = getState();
-  const { phase, currentPlayer } = state.gameBoard;
+  const { currentPlayer } = state.gameBoard;
   const { cells } = state.gameMap;
 
-  if (phase !== 'producing') return;
+  dispatch(setPhase('producing'));
 
   const ownerCellIds = Object.keys(cells).filter(
     cell => cells[cell].owner === currentPlayer
@@ -22,4 +23,4 @@ const updateCellsInteractionForProducing = () => (dispatch, getState) => {
   dispatch(updateCells(dataForUpdate));
 };
 
-export default updateCellsInteractionForProducing;
+export default setProducingPhase;
