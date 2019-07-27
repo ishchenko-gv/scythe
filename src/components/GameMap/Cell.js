@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
@@ -17,66 +17,54 @@ const types = {
   factory: 'Фабрика'
 };
 
-class Cell extends PureComponent {
-  handleResourceClick = () => {
-    const { onResourcesProduce, isInteractive, id } = this.props;
-
+const Cell = ({
+  id,
+  type,
+  units,
+  resources,
+  owner,
+  isInteractive,
+  onUnitSelect,
+  onResourcesProduce,
+  onUnitMove
+}) => {
+  const handleResourceClick = () => {
     if (!isInteractive) return;
 
     onResourcesProduce(id);
   };
 
-  handleCellClick = () => {
-    const { onUnitMove, isInteractive, id } = this.props;
-
+  const handleCellClick = () => {
     if (!isInteractive) return;
 
     onUnitMove(id);
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps.resources === this.props.resources);
-  }
+  const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
+    isInteractive ? styles['cell--isInteractive'] : ''
+  }`;
 
-  render() {
-    const {
-      id,
-      type,
-      units,
-      resources,
-      owner,
-      isInteractive,
-      onUnitSelect
-    } = this.props;
+  console.log('cell render');
 
-    const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
-      isInteractive ? styles['cell--isInteractive'] : ''
-    }`;
-
-    console.log('cell render');
-
-    return (
-      <div onClick={this.handleCellClick} className={classNames}>
-        <div onClick={this.handleResourceClick}>{types[type]}</div>
-        <br />
-        {owner}
-        <ul>
-          {units &&
-            units.map((unit, index) => (
-              <li onClick={() => onUnitSelect({ cellId: id, index })}>
-                {unit}
-              </li>
-            ))}
-        </ul>
-        <ul>
-          {resources.map(resource => (
-            <li>{resource}</li>
+  return (
+    <div onClick={handleCellClick} className={classNames}>
+      <div onClick={handleResourceClick}>{types[type]}</div>
+      <br />
+      {owner} 
+      <ul>
+        {units &&
+          units.map((unit, index) => (
+            <li onClick={() => onUnitSelect({ cellId: id, index })}>{unit}</li>
           ))}
-        </ul>
-      </div>
-    );
-  }
-}
+      </ul>
+      <ul>
+        {resources.map(resource => (
+          <li>{resource}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const mapState = (state, ownProps) => ({
   units: state.gameMap.cells[ownProps.id].units,

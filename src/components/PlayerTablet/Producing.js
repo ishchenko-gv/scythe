@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 
 import setProducingPhase from '../../store/actions/game-board/set-producing-phase';
 
-const mapDispatch = dispatch => ({
-  onPhaseSet: () => dispatch(setProducingPhase())
-});
-
 const Producing = ({ onPhaseSet }) => {
   return (
     <div>
@@ -14,6 +10,10 @@ const Producing = ({ onPhaseSet }) => {
     </div>
   );
 };
+
+const mapDispatch = dispatch => ({
+  onPhaseSet: () => dispatch(setProducingPhase())
+});
 
 export default connect(
   null,

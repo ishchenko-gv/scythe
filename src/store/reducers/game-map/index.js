@@ -11,10 +11,17 @@ const initialState = {
 const gameMap = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_CELLS: {
-      const cells = deepmerge(state.cells, action.data);
+      const updatedCells = Object.keys(action.data).reduce((acc, item) => {
+        acc[item] = deepmerge(state.cells[item], action.data[item]);
+
+        return acc;
+      }, {});
       return {
         ...state,
-        cells
+        cells: {
+          ...state.cells,
+          ...updatedCells
+        }
       };
     }
     case actionTypes.SET_SELECTED_UNIT: {
@@ -25,6 +32,8 @@ const gameMap = (state = initialState, action) => {
     }
     case actionTypes.RESET_CELLS_INTERACTIVITY: {
       const updatedCells = Object.keys(state.cells).reduce((acc, item) => {
+        if (!state.cells[item].isInteractive) return acc;
+
         acc[item] = {
           ...state.cells[item],
           isInteractive: false

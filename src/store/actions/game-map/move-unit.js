@@ -5,7 +5,6 @@ import {
   setSelectedUnit,
   updateCells
 } from './index';
-
 import { decrementMovementPoints } from '../players';
 
 const moveUnit = destinationCellId => (dispatch, getState) => {
