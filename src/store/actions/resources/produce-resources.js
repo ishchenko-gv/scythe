@@ -12,7 +12,7 @@ const produceResources = cellId => (dispatch, getState) => {
 
   const cellType = state.gameMap.cells[cellId].type;
   const workersCount = Object.keys(units).filter(
-    unit => units[unit].location === cellId
+    unit => units[unit].location === cellId && units[unit].type === 'worker'
   ).length;
   const producedResource = Array(workersCount).fill({
     type: cellType,

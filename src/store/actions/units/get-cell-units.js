@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
+import memoize from 'lodash/memoize';
 
-export default id =>
+export default memoize(id =>
   createSelector(
     state => state.units,
     units =>
@@ -8,4 +9,5 @@ export default id =>
         if (units[unit].location === id) acc.push({ ...units[unit], id: unit });
         return acc;
       }, [])
-  );
+  )
+);

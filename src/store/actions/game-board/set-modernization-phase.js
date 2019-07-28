@@ -1,6 +1,6 @@
-import { setPhase } from '../game-board';
+import { setPhase } from './index';
 
-const modernizeTablet = () => (dispatch, getState) {
+const setModernizationPhase = () => (dispatch, getState) {
   const state = getState();
 
   dispatch(setPhase('modernization'));

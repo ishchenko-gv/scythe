@@ -7,7 +7,44 @@ const initialState = {
     producePoints: 2,
     movementPoints: 2,
     powerPoints: 4,
-    money: 5
+    money: 5,
+    choosenAction: null,
+    actions: {
+      gainPower: {
+        type: 'top',
+        section: 0
+      },
+      modernization: {
+        type: 'bottom',
+        section: 0,
+        cost: { type: 'oil', count: 3 },
+        payoff: { type: 'money', count: 3 }
+      },
+      producing: {
+        type: 'top',
+        section: 1
+      },
+      mechDeploy: {
+        type: 'bottom',
+        section: 1
+      },
+      movement: {
+        type: 'top',
+        section: 2
+      },
+      building: {
+        type: 'bottom',
+        section: 2
+      },
+      trading: {
+        type: 'top',
+        section: 3
+      },
+      mobilization: {
+        type: 'bottom',
+        section: 3
+      }
+    }
   },
   rusvet: {
     color: 'red',
@@ -15,7 +52,9 @@ const initialState = {
     producePoints: 2,
     movementPoints: 2,
     powerPoints: 4,
-    money: 5
+    money: 5,
+    modernizationCost: { type: 'oil', count: 3 },
+    modernizationPayoff: { type: 'money', count: 3 }
   }
 };
 

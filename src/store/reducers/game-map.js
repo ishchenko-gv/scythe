@@ -1,18 +1,17 @@
-import deepmerge from 'deepmerge';
+import merge from 'lodash/merge';
 
 import * as actionTypes from '../actions/game-map/action-types';
 import cells from '../../data/mapCells';
 
 const initialState = {
-  cells,
-  selectedUnit: null
+  cells
 };
 
 const gameMap = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_CELLS: {
       const updatedCells = Object.keys(action.data).reduce((acc, item) => {
-        acc[item] = deepmerge(state.cells[item], action.data[item]);
+        acc[item] = merge(state.cells[item], action.data[item]);
 
         return acc;
       }, {});
