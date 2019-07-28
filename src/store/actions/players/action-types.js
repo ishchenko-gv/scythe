@@ -4,3 +4,4 @@ export const POWER_POINTS_ADD = 'players/addPowerPoints';
 export const POWER_POINTS_REMOVE = 'players/removePowerPoints';
 export const MONEY_ADD = 'players/addMoney';
 export const MONEY_REMOVE = 'players/removeMoney';
+export const CHOOSEN_ACTION_SET = 'players/setChoosenAction';

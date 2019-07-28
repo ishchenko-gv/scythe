@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 import getCellUnits from '../../store/actions/units/get-cell-units';
 import selectUnit from '../../store/actions/units/select-unit';
 
-const Units = ({ units, onUnitSelect }) => {
-  return (
-    <ul>
-      {units.map(unit => (
-        <li onClick={() => onUnitSelect(unit.id)}>{unit.type}</li>
-      ))}
-    </ul>
-  );
-};
+const Units = ({ units, onUnitSelect }) => (
+  <ul>
+    {units.map(unit => (
+      <li onClick={() => onUnitSelect(unit.id)}>{unit.type}</li>
+    ))}
+  </ul>
+);
 
 const mapState = (state, ownProps) => ({
   units: getCellUnits(ownProps.cellId)(state)

@@ -13,6 +13,12 @@ export const removePowerPoints = makePointsAction(
 export const addMoney = makePointsAction(actionTypes.MONEY_ADD);
 export const removeMoney = makePointsAction(actionTypes.MONEY_REMOVE);
 
+export const setChoosenAction = (playerId, choosenAction) => ({
+  type: actionTypes.CHOOSEN_ACTION_SET,
+  playerId,
+  choosenAction
+});
+
 function makePointsAction(actionType) {
   return (playerId, count) => ({
     type: actionType,

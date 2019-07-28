@@ -9,3 +9,8 @@ export const setSelectedUnit = selectedUnit => ({
   type: actionTypes.SELECTED_UNIT_SET,
   selectedUnit
 });
+
+export const addPayedResource = resource => ({
+  type: actionTypes.PAYED_RESOURCE_ADD,
+  resource
+});

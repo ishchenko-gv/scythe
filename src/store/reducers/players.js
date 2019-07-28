@@ -52,9 +52,7 @@ const initialState = {
     producePoints: 2,
     movementPoints: 2,
     powerPoints: 4,
-    money: 5,
-    modernizationCost: { type: 'oil', count: 3 },
-    modernizationPayoff: { type: 'money', count: 3 }
+    money: 5
   }
 };
 
@@ -72,6 +70,14 @@ const players = (state = initialState, action) => {
       return addPoints(state, action, 'money');
     case actionTypes.MONEY_REMOVE:
       return removePoints(state, action, 'money');
+    case actionTypes.CHOOSEN_ACTION_SET:
+      return {
+        ...state,
+        [action.playerId]: {
+          ...state[action.playerId],
+          choosenAction: action.choosenAction
+        }
+      };
     default:
       return state;
   }

@@ -1,8 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Modernization = () => {
-  return <button>Модернизация</button>;
+import enableResourcePayingForChoosenAction from '../../store/actions/game-board/enable-resource-paying-for-choosen-action';
+
+const Modernization = ({ onResourcePayingEnable }) => {
+  return <button onClick={onResourcePayingEnable}>Модернизация</button>;
 };
 
-export default connect(null)(Modernization);
+const mapDispatch = dispatch => ({
+  onResourcePayingEnable: () =>
+    dispatch(enableResourcePayingForChoosenAction('modernization'))
+});
+
+export default connect(
+  null,
+  mapDispatch
+)(Modernization);
