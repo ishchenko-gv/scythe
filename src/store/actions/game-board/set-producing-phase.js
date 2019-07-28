@@ -11,8 +11,10 @@ const setProducingPhase = () => (dispatch, getState) => {
   const ownerCellIds = Object.keys(cells).filter(
     cell => cells[cell].owner === currentPlayer
   );
+
   const dataForUpdate = ownerCellIds.reduce((acc, id) => {
     const hasWorkers = cells[id].units.includes('worker');
+
     if (!hasWorkers) return acc;
 
     acc[id] = { isInteractive: true };

@@ -7,8 +7,8 @@ const gainPower = () => (dispatch, getState) => {
 
   if (!money) return;
 
-  dispatch(addPowerPoints(3, currentPlayer));
-  dispatch(removeMoney(1, currentPlayer));
+  dispatch(addPowerPoints(currentPlayer, 3));
+  dispatch(removeMoney(currentPlayer, 1));
 };
 
 export default gainPower;

@@ -12,6 +12,12 @@ const gameBoard = (state = initialState, action) => {
         ...state,
         phase: action.phase
       };
+    case actionTypes.SELECTED_UNIT_SET: {
+      return {
+        ...state,
+        selectedUnit: action.selectedUnit
+      };
+    }
     default:
       return state;
   }

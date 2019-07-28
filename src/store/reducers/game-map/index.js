@@ -16,19 +16,13 @@ const gameMap = (state = initialState, action) => {
 
         return acc;
       }, {});
-      
+
       return {
         ...state,
         cells: {
           ...state.cells,
           ...updatedCells
         }
-      };
-    }
-    case actionTypes.SET_SELECTED_UNIT: {
-      return {
-        ...state,
-        selectedUnit: action.selectedUnit
       };
     }
     case actionTypes.RESET_CELLS_INTERACTIVITY: {
@@ -48,32 +42,6 @@ const gameMap = (state = initialState, action) => {
         cells: {
           ...state.cells,
           ...updatedCells
-        }
-      };
-    }
-    case actionTypes.REMOVE_UNIT: {
-      return {
-        ...state,
-        cells: {
-          ...state.cells,
-          [action.cellId]: {
-            ...state.cells[action.cellId],
-            units: state.cells[action.cellId].units.filter(
-              (unit, index) => index !== action.unitIndex
-            )
-          }
-        }
-      };
-    }
-    case actionTypes.ADD_UNIT: {
-      return {
-        ...state,
-        cells: {
-          ...state.cells,
-          [action.cellId]: {
-            ...state.cells[action.cellId],
-            units: [...state.cells[action.cellId].units, action.unit]
-          }
         }
       };
     }

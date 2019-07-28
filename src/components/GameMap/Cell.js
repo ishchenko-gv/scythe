@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
 import produceResources from '../../store/actions/game-map/produce-resources';
-import selectUnit from '../../store/actions/game-map/select-unit';
-import moveUnit from '../../store/actions/game-map/move-unit';
+import selectUnit from '../../store/actions/units/select-unit';
+import moveUnit from '../../store/actions/units/move-unit';
+import getCellUnits from './selectors/get-cell-units';
 
 const types = {
   lake: 'Озеро',
@@ -22,7 +23,6 @@ const Cell = ({
   type,
   units,
   resources,
-  owner,
   isInteractive,
   onUnitSelect,
   onResourcesProduce,
@@ -45,32 +45,31 @@ const Cell = ({
   }`;
 
   console.log('cell render');
+  const owner = units.length ? units[0].owner : null;
 
   return (
     <div onClick={handleCellClick} className={classNames}>
       <div onClick={handleResourceClick}>{types[type]}</div>
       <br />
-      {owner} 
+      {owner}
       <ul>
-        {units &&
-          units.map((unit, index) => (
-            <li onClick={() => onUnitSelect({ cellId: id, index })}>{unit}</li>
-          ))}
+        {units.map(unit => (
+          <li onClick={() => onUnitSelect(unit.id, id)}>{unit.type}</li>
+        ))}
       </ul>
-      <ul>
+      {/* <ul>
         {resources.map(resource => (
           <li>{resource}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
 
 const mapState = (state, ownProps) => ({
-  units: state.gameMap.cells[ownProps.id].units,
   resources: state.gameMap.cells[ownProps.id].resources,
-  owner: state.gameMap.cells[ownProps.id].owner,
-  isInteractive: state.gameMap.cells[ownProps.id].isInteractive
+  isInteractive: state.gameMap.cells[ownProps.id].isInteractive,
+  units: getCellUnits(ownProps.id)(state)
 });
 
 const mapDispatch = dispatch => ({

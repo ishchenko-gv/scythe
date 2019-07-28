@@ -14,7 +14,7 @@ export const addMoney = makePointsAction(actionTypes.MONEY_ADD);
 export const removeMoney = makePointsAction(actionTypes.MONEY_REMOVE);
 
 function makePointsAction(actionType) {
-  return (count, playerId) => ({
+  return (playerId, count) => ({
     type: actionType,
     count: count || null,
     playerId

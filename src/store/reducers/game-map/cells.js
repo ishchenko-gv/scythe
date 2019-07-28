@@ -1,28 +1,19 @@
 export default {
   a0: {
     type: 'base',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'b0' }, { id: 'b1' }]
   },
   a1: {
     type: 'base',
-    owner: 'nordic',
-    units: ['hero'],
-    resources: [],
     neighborCells: [{ id: 'b3' }, { id: 'b4' }]
   },
 
   b0: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'a0' }, { id: 'b1' }, { id: 'c0' }, { id: 'c1' }]
   },
   b1: {
     type: 'food',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'a0' },
       { id: 'b0' },
@@ -33,15 +24,10 @@ export default {
   },
   b2: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'b1' }, { id: 'b3' }, { id: 'c2' }, { id: 'c3' }]
   },
   b3: {
     type: 'wood',
-    owner: 'nordic',
-    units: ['worker'],
-    resources: [],
     neighborCells: [
       { id: 'a1' },
       { id: 'b2' },
@@ -52,9 +38,6 @@ export default {
   },
   b4: {
     type: 'oil',
-    owner: 'nordic',
-    units: ['worker'],
-    resources: [],
     neighborCells: [
       { id: 'a1' },
       { id: 'b3' },
@@ -65,21 +48,15 @@ export default {
   },
   b5: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'b4' }, { id: 'c5' }, { id: 'c6' }]
   },
 
   c0: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'b0' }, { id: 'c1' }, { id: 'd0' }, { id: 'd1' }]
   },
   c1: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'b0' },
       { id: 'b1' },
@@ -91,8 +68,6 @@ export default {
   },
   c2: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'b1' },
       { id: 'b2' },
@@ -104,8 +79,6 @@ export default {
   },
   c3: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'b2' },
       { id: 'b3' },
@@ -117,8 +90,6 @@ export default {
   },
   c4: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'b3' },
       { id: 'b4' },
@@ -130,8 +101,6 @@ export default {
   },
   c5: {
     type: 'food',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'b4' },
       { id: 'b5' },
@@ -143,21 +112,15 @@ export default {
   },
   c6: {
     type: 'food',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'b5' }, { id: 'c5' }, { id: 'd6' }, { id: 'd7' }]
   },
 
   d0: {
     type: 'base',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'c0' }, { id: 'd1' }, { id: 'e0' }]
   },
   d1: {
     type: 'wood',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'c0' },
       { id: 'c1' },
@@ -169,8 +132,6 @@ export default {
   },
   d2: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'c1' },
       { id: 'c2' },
@@ -182,8 +143,6 @@ export default {
   },
   d3: {
     type: 'wood',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'c2' },
       { id: 'c3' },
@@ -195,8 +154,6 @@ export default {
   },
   d4: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'c3' },
       { id: 'c4' },
@@ -208,8 +165,6 @@ export default {
   },
   d5: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'c4' },
       { id: 'c5' },
@@ -221,8 +176,6 @@ export default {
   },
   d6: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'c5' },
       { id: 'c6' },
@@ -234,15 +187,11 @@ export default {
   },
   d7: {
     type: 'base',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'c6' }, { id: 'd6' }, { id: 'e6' }]
   },
 
   e0: {
     type: 'food',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'd0' },
       { id: 'd1' },
@@ -253,8 +202,6 @@ export default {
   },
   e1: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'd1' },
       { id: 'd2' },
@@ -266,8 +213,6 @@ export default {
   },
   e2: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'd2' },
       { id: 'd3' },
@@ -279,8 +224,6 @@ export default {
   },
   e3: {
     type: 'factory',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'd3' },
       { id: 'd4' },
@@ -292,8 +235,6 @@ export default {
   },
   e4: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'd4' },
       { id: 'd5' },
@@ -305,8 +246,6 @@ export default {
   },
   e5: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'd5' },
       { id: 'd6' },
@@ -318,21 +257,15 @@ export default {
   },
   e6: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'd6' }, { id: 'd7' }, { id: 'e5' }, { id: 'f6' }]
   },
 
   f0: {
     type: 'wood',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'e0' }, { id: 'f1' }, { id: 'g0' }]
   },
   f1: {
     type: 'wood',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'e0' },
       { id: 'e1' },
@@ -344,8 +277,6 @@ export default {
   },
   f2: {
     type: 'food',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'e1' },
       { id: 'e2' },
@@ -357,8 +288,6 @@ export default {
   },
   f3: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'e2' },
       { id: 'e3' },
@@ -370,8 +299,6 @@ export default {
   },
   f4: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'e3' },
       { id: 'e4' },
@@ -383,8 +310,6 @@ export default {
   },
   f5: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'e4' },
       { id: 'e5' },
@@ -396,8 +321,6 @@ export default {
   },
   f6: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'e5' },
       { id: 'e6' },
@@ -409,8 +332,6 @@ export default {
 
   g0: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'f0' },
       { id: 'f1' },
@@ -421,8 +342,6 @@ export default {
   },
   g1: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'f1' },
       { id: 'f2' },
@@ -434,8 +353,6 @@ export default {
   },
   g2: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'f2' },
       { id: 'f3' },
@@ -447,8 +364,6 @@ export default {
   },
   g3: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'f3' },
       { id: 'f4' },
@@ -460,8 +375,6 @@ export default {
   },
   g4: {
     type: 'wood',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'f4' },
       { id: 'f5' },
@@ -473,8 +386,6 @@ export default {
   },
   g5: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'f5' },
       { id: 'f6' },
@@ -486,27 +397,19 @@ export default {
   },
   g6: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'f6' }, { id: 'g5' }, { id: 'h6' }, { id: 'h7' }]
   },
 
   h0: {
     type: 'base',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'g0' }, { id: 'h1' }]
   },
   h1: {
     type: 'oil',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'g0' }, { id: 'g1' }, { id: 'h0' }, { id: 'h2' }]
   },
   h2: {
     type: 'lake',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'g1' },
       { id: 'g2' },
@@ -517,8 +420,6 @@ export default {
   },
   h3: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'g2' },
       { id: 'g3' },
@@ -530,8 +431,6 @@ export default {
   },
   h4: {
     type: 'iron',
-    resources: [],
-    units: [],
     neighborCells: [
       { id: 'g3' },
       { id: 'g4' },
@@ -542,33 +441,23 @@ export default {
   },
   h5: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'g4' }, { id: 'g5' }, { id: 'h4' }, { id: 'h6' }]
   },
   h6: {
     type: 'food',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'g5' }, { id: 'g6' }, { id: 'h5' }, { id: 'h7' }]
   },
   h7: {
     type: 'base',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'g6' }, { id: 'h6' }]
   },
 
   i0: {
     type: 'base',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'h2' }, { id: 'h3' }, { id: 'i1' }]
   },
   i1: {
     type: 'farm',
-    resources: [],
-    units: [],
     neighborCells: [{ id: 'h3' }, { id: 'h4' }, { id: 'i0' }]
   }
 };
