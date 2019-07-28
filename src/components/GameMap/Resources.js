@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import getCellResources from './selectors/get-cell-resources';
-import getAvailableResourcesForPayment from '../../store/actions/resources/get-available-resources-for-payment';
+import getCellResources from '../../store/selectors/resources/get-cell-resources';
+import getAvailableResourcesForPayment from '../../store/selectors/resources/get-available-resources-for-payment';
 import payForChoosenAction from '../../store/actions/resources/pay-for-choosen-action';
 
 const types = {

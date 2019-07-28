@@ -1,9 +1,10 @@
 import { setPhase } from '../game-board';
 import { updateCells } from '../game-map';
+import { getCurrentPlayer } from '../../selectors/game-board';
 
 const setProducingPhase = () => (dispatch, getState) => {
   const state = getState();
-  const { currentPlayer } = state.gameBoard;
+  const currentPlayer = getCurrentPlayer(state);
   const { units } = state;
 
   const dataForUpdate = Object.keys(units).reduce((acc, id) => {
