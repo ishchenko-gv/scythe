@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
-import produceResources from '../../store/actions/game-map/produce-resources';
+import produceResources from '../../store/actions/resources/produce-resources';
 import selectUnit from '../../store/actions/units/select-unit';
 import moveUnit from '../../store/actions/units/move-unit';
 import getCellUnits from './selectors/get-cell-units';
+import getCellResources from './selectors/get-cell-resources';
 
 const types = {
   lake: 'Озеро',
@@ -57,18 +58,18 @@ const Cell = ({
           <li onClick={() => onUnitSelect(unit.id, id)}>{unit.type}</li>
         ))}
       </ul>
-      {/* <ul>
+      <ul>
         {resources.map(resource => (
-          <li>{resource}</li>
+          <li>{resource.type}</li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };
 
 const mapState = (state, ownProps) => ({
-  resources: state.gameMap.cells[ownProps.id].resources,
   isInteractive: state.gameMap.cells[ownProps.id].isInteractive,
+  resources: getCellResources(ownProps.id)(state),
   units: getCellUnits(ownProps.id)(state)
 });
 

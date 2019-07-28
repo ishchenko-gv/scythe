@@ -6,7 +6,6 @@ export default id =>
     units =>
       Object.keys(units).reduce((acc, unit) => {
         if (units[unit].location === id) acc.push({ ...units[unit], id: unit });
-
         return acc;
       }, [])
   );

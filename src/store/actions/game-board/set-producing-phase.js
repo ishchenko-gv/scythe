@@ -1,27 +1,21 @@
-import { updateCells } from '../game-map';
 import { setPhase } from '../game-board';
+import { updateCells } from '../game-map';
 
 const setProducingPhase = () => (dispatch, getState) => {
   const state = getState();
   const { currentPlayer } = state.gameBoard;
-  const { cells } = state.gameMap;
+  const { units } = state;
 
-  dispatch(setPhase('producing'));
+  const dataForUpdate = Object.keys(units).reduce((acc, id) => {
+    const { owner, type, location } = units[id];
 
-  const ownerCellIds = Object.keys(cells).filter(
-    cell => cells[cell].owner === currentPlayer
-  );
-
-  const dataForUpdate = ownerCellIds.reduce((acc, id) => {
-    const hasWorkers = cells[id].units.includes('worker');
-
-    if (!hasWorkers) return acc;
-
-    acc[id] = { isInteractive: true };
+    if (owner === currentPlayer && type === 'worker')
+      acc[location] = { isInteractive: true };
 
     return acc;
   }, {});
 
+  dispatch(setPhase('producing'));
   dispatch(updateCells(dataForUpdate));
 };
 

@@ -1,7 +1,7 @@
 import deepmerge from 'deepmerge';
 
-import * as actionTypes from '../../actions/game-map/action-types';
-import cells from './cells';
+import * as actionTypes from '../actions/game-map/action-types';
+import cells from '../../data/mapCells';
 
 const initialState = {
   cells,

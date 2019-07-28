@@ -1,27 +1,27 @@
-import { decrementProducePoints } from '../../actions/players';
-import { updateCells, resetCellsInteractivity } from '../../actions/game-map';
+import { decrementProducePoints } from '../players';
+import { resetCellsInteractivity } from '../game-map';
+import { addResource } from './index';
 
 const produceResources = cellId => (dispatch, getState) => {
   const state = getState();
   const playerId = state.gameBoard.currentPlayer;
   const producePoints = state.players[playerId].producePoints;
+  const { units } = state;
 
   if (!producePoints) return;
 
   const cellType = state.gameMap.cells[cellId].type;
-  const workersCount = state.gameMap.cells[cellId].units.filter(
-    unit => unit === 'worker'
+  const workersCount = Object.keys(units).filter(
+    unit => units[unit].location === cellId
   ).length;
-  const producedResources = Array(workersCount).fill(cellType);
-  const dataToUpdate = {
-    [cellId]: {
-      resources: producedResources
-    }
-  };
+  const producedResource = Array(workersCount).fill({
+    type: cellType,
+    location: cellId
+  });
 
   if (producePoints === 1) dispatch(resetCellsInteractivity());
   dispatch(decrementProducePoints(playerId));
-  dispatch(updateCells(dataToUpdate));
+  dispatch(addResource(producedResource));
 };
 
 export default produceResources;
