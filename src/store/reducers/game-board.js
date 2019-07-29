@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/game-board/action-types';
 const initialState = {
   currentPlayer: 'nordic',
   phase: 'actionChoose',
+  selectedUnit: null,
   payedResources: {}
 };
 

@@ -4,6 +4,7 @@ import * as actionTypes from '../actions/game-map/action-types';
 import cells from '../../data/mapCells';
 
 const initialState = {
+  activeCells: [],
   cells
 };
 
@@ -24,24 +25,16 @@ const gameMap = (state = initialState, action) => {
         }
       };
     }
-    case actionTypes.RESET_CELLS_INTERACTIVITY: {
-      const updatedCells = Object.keys(state.cells).reduce((acc, item) => {
-        if (!state.cells[item].isInteractive) return acc;
-
-        acc[item] = {
-          ...state.cells[item],
-          isInteractive: false
-        };
-
-        return acc;
-      }, {});
-
+    case actionTypes.ACTIVE_CELLS_RESET: {
       return {
         ...state,
-        cells: {
-          ...state.cells,
-          ...updatedCells
-        }
+        activeCells: []
+      };
+    }
+    case actionTypes.ACTIVE_CELLS_SET: {
+      return {
+        ...state,
+        activeCells: action.cells
       };
     }
     default:

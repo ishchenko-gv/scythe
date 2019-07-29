@@ -1,4 +1,3 @@
-import { resetCellsInteractivity } from '../game-map';
 import { setSelectedUnit } from '../game-board';
 import { changeUnitLocation } from './index';
 import { decrementMovementPoints } from '../players';
@@ -18,7 +17,6 @@ const moveUnit = destinationCellId => (dispatch, getState) => {
 
   dispatch(changeUnitLocation(selectedUnitId, destinationCellId));
   dispatch(setSelectedUnit(null));
-  dispatch(resetCellsInteractivity());
   dispatch(decrementMovementPoints(currentPlayer));
 };
 

@@ -1,5 +1,5 @@
 import { decrementProducePoints } from '../players';
-import { resetCellsInteractivity } from '../game-map';
+import { resetActiveCells } from '../game-map';
 import { addResource } from './index';
 
 const produceResources = cellId => (dispatch, getState) => {
@@ -19,7 +19,7 @@ const produceResources = cellId => (dispatch, getState) => {
     location: cellId
   });
 
-  if (producePoints === 1) dispatch(resetCellsInteractivity());
+  if (producePoints === 1) dispatch(resetActiveCells());
   dispatch(decrementProducePoints(playerId));
   dispatch(addResource(producedResource));
 };

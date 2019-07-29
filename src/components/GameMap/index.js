@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 
 import Cell from './Cell';
 
-const GameMap = React.memo(
-  ({ mapCells }) => {
-    return (
-      <>
-        {Object.keys(mapCells).map(cell => (
-          <Cell id={cell} type={mapCells[cell].type} />
-        ))}
-      </>
-    );
-  },
-  () => true
+const GameMap = ({ mapCells }) => (
+  <>
+    {Object.keys(mapCells).map(cell => (
+      <Cell key={cell} id={cell} type={mapCells[cell].type} />
+    ))}
+  </>
 );
 
 const mapState = state => ({

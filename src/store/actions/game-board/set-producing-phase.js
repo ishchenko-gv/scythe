@@ -1,5 +1,5 @@
 import { setPhase } from '../game-board';
-import { updateCells } from '../game-map';
+import { setActiveCells } from '../game-map';
 import { getCurrentPlayer } from '../../selectors/game-board';
 
 const setProducingPhase = () => (dispatch, getState) => {
@@ -7,17 +7,16 @@ const setProducingPhase = () => (dispatch, getState) => {
   const currentPlayer = getCurrentPlayer(state);
   const { units } = state;
 
-  const dataForUpdate = Object.keys(units).reduce((acc, id) => {
+  const activeCells = Object.keys(units).reduce((acc, id) => {
     const { owner, type, location } = units[id];
 
-    if (owner === currentPlayer && type === 'worker')
-      acc[location] = { isInteractive: true };
+    if (owner === currentPlayer && type === 'worker') acc.push(location);
 
     return acc;
-  }, {});
+  }, []);
 
   dispatch(setPhase('producing'));
-  dispatch(updateCells(dataForUpdate));
+  dispatch(setActiveCells(activeCells));
 };
 
 export default setProducingPhase;

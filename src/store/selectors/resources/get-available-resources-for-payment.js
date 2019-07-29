@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import getPlayerWorkersLocation from '../../actions/units/get-player-workers-location';
+import { getPlayerWorkersLocation } from '../game-map';
 import getResources from './get-resources';
 import { getPlayerActionCost } from '../players';
 import { getPhase } from '../game-board';

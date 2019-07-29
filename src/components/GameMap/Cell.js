@@ -6,6 +6,7 @@ import produceResources from '../../store/actions/resources/produce-resources';
 import moveUnit from '../../store/actions/units/move-unit';
 import Units from './Units';
 import Resources from './Resources';
+import { getAvailableCellsForMovement } from '../../store/selectors/game-map';
 
 const types = {
   lake: 'Озеро',
@@ -18,21 +19,28 @@ const types = {
   factory: 'Фабрика'
 };
 
-const Cell = ({ id, type, isInteractive, onResourcesProduce, onUnitMove }) => {
+const Cell = ({
+  id,
+  type,
+  isActive,
+  isAvailableForMovement,
+  onResourcesProduce,
+  onUnitMove
+}) => {
   const handleResourceClick = () => {
-    if (!isInteractive) return;
+    if (!isActive) return;
 
     onResourcesProduce(id);
   };
 
   const handleCellClick = () => {
-    if (!isInteractive) return;
+    if (!isAvailableForMovement) return;
 
     onUnitMove(id);
   };
 
   const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
-    isInteractive ? styles['cell--isInteractive'] : ''
+    isAvailableForMovement ? styles['cell--isInteractive'] : ''
   }`;
 
   return (
@@ -46,7 +54,10 @@ const Cell = ({ id, type, isInteractive, onResourcesProduce, onUnitMove }) => {
 };
 
 const mapState = (state, ownProps) => ({
-  isInteractive: state.gameMap.cells[ownProps.id].isInteractive
+  isActive: state.gameMap.activeCells.includes(ownProps.id),
+  isAvailableForMovement: getAvailableCellsForMovement(state).includes(
+    ownProps.id
+  )
 });
 
 const mapDispatch = dispatch => ({

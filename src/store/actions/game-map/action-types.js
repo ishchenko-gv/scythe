@@ -1,2 +1,3 @@
 export const UPDATE_CELLS = 'gameMap/updateCells';
-export const RESET_CELLS_INTERACTIVITY = 'gameMap/resetCellsInteractivity';
+export const ACTIVE_CELLS_RESET = 'gameMap/resetActiveCells';
+export const ACTIVE_CELLS_SET = 'gameMap/setActiveCells';

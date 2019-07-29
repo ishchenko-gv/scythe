@@ -5,6 +5,11 @@ export const updateCells = data => ({
   data
 });
 
-export const resetCellsInteractivity = () => ({
-  type: actionTypes.RESET_CELLS_INTERACTIVITY
+export const resetActiveCells = () => ({
+  type: actionTypes.ACTIVE_CELLS_RESET
+});
+
+export const setActiveCells = cells => ({
+  type: actionTypes.ACTIVE_CELLS_SET,
+  cells
 });
