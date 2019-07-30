@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import getCellUnits from '../../store/selectors/game-map/get-cell-units';
-import selectUnit from '../../store/actions/units/select-unit';
+import { getCellUnits } from '../../store/selectors/game-board/map-cells';
+import selectUnit from '../../store/actions/game-board/units/select-unit';
 
 const Units = ({ units, onUnitSelect }) => (
   <ul>
@@ -12,9 +12,11 @@ const Units = ({ units, onUnitSelect }) => (
   </ul>
 );
 
-const mapState = (state, ownProps) => ({
-  units: getCellUnits(ownProps.cellId)(state)
-});
+const mapState = (state, ownProps) => {
+  return {
+    units: getCellUnits(ownProps.cellId)(state)
+  };
+};
 
 const mapDispatch = dispatch => ({
   onUnitSelect: unit => dispatch(selectUnit(unit))

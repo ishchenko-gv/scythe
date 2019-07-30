@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import setProducingPhase from '../../store/actions/game-board/set-producing-phase';
+import setProducingPhase from '../../store/actions/game-board/general/set-producing-phase';
 
 const Producing = ({ onPhaseSet }) => {
   return (

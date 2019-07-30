@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setPhase } from '../../store/actions/game-board';
+import { setPhase } from '../../store/actions/game-board/general';
 
 const Movement = ({ onPhaseSet }) => {
   return <button onClick={onPhaseSet}>Передвижение</button>;

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { getCurrentPlayer } from '../../store/selectors/game-board/general';
+import { getPlayerTablets } from '../../store/selectors/playerTablets';
+
 const PlayerInfo = ({ producePoints, movementPoints, powerPoints, money }) => {
   return (
     <ul>
@@ -13,13 +16,14 @@ const PlayerInfo = ({ producePoints, movementPoints, powerPoints, money }) => {
 };
 
 const mapState = state => {
-  const { currentPlayer } = state.gameBoard;
+  const currentPlayer = getCurrentPlayer(state);
+  const playerTablets = getPlayerTablets(state);
 
   return {
-    producePoints: state.players[currentPlayer].producePoints,
-    movementPoints: state.players[currentPlayer].movementPoints,
-    powerPoints: state.players[currentPlayer].powerPoints,
-    money: state.players[currentPlayer].money
+    producePoints: playerTablets[currentPlayer].producePoints,
+    movementPoints: playerTablets[currentPlayer].movementPoints,
+    powerPoints: playerTablets[currentPlayer].powerPoints,
+    money: playerTablets[currentPlayer].money
   };
 };
 

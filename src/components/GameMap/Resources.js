@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import getCellResources from '../../store/selectors/resources/get-cell-resources';
-import getAvailableResourcesForPayment from '../../store/selectors/resources/get-available-resources-for-payment';
-import payForChoosenAction from '../../store/actions/resources/pay-for-choosen-action';
+import {
+  getAvailableResourcesForPayment,
+  getCellResources
+} from '../../store/selectors/game-board/resources';
+import payForChoosenAction from '../../store/actions/game-board/resources/pay-for-choosen-action';
 
 const types = {
   iron: 'Железо',

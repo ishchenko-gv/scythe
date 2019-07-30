@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
-import produceResources from '../../store/actions/resources/produce-resources';
-import moveUnit from '../../store/actions/units/move-unit';
+import produceResources from '../../store/actions/game-board/resources/produce-resources';
+import moveUnit from '../../store/actions/game-board/units/move-unit';
 import Units from './Units';
 import Resources from './Resources';
-import { getAvailableCellsForMovement } from '../../store/selectors/game-map';
+import {
+  getAvailableCellsForMovement,
+  getAvailableCellsForProducing
+} from '../../store/selectors/game-board/map-cells';
 
 const types = {
   lake: 'Озеро',
@@ -22,13 +25,13 @@ const types = {
 const Cell = ({
   id,
   type,
-  isActive,
   isAvailableForMovement,
+  isAvailableForProducing,
   onResourcesProduce,
   onUnitMove
 }) => {
   const handleResourceClick = () => {
-    if (!isActive) return;
+    if (!isAvailableForProducing) return;
 
     onResourcesProduce(id);
   };
@@ -54,8 +57,10 @@ const Cell = ({
 };
 
 const mapState = (state, ownProps) => ({
-  isActive: state.gameMap.activeCells.includes(ownProps.id),
   isAvailableForMovement: getAvailableCellsForMovement(state).includes(
+    ownProps.id
+  ),
+  isAvailableForProducing: getAvailableCellsForProducing(state).includes(
     ownProps.id
   )
 });
