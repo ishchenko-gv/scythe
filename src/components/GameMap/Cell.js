@@ -30,17 +30,13 @@ const Cell = ({
   onResourcesProduce,
   onUnitMove
 }) => {
-  const handleResourceClick = () => {
-    if (!isAvailableForProducing) return;
-
-    onResourcesProduce(id);
-  };
-
   const handleCellClick = () => {
     if (!isAvailableForMovement) return;
 
     onUnitMove(id);
   };
+
+  console.log(isAvailableForProducing);
 
   const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
     isAvailableForMovement ? styles['cell--isInteractive'] : ''
@@ -48,7 +44,12 @@ const Cell = ({
 
   return (
     <div onClick={handleCellClick} className={classNames}>
-      <div onClick={handleResourceClick}>{types[type]}</div>
+      <div>
+        {types[type]}{' '}
+        {isAvailableForProducing && (
+          <button onClick={() => onResourcesProduce(id)}>+</button>
+        )}
+      </div>
       <br />
       <Units cellId={id} />
       <Resources cellId={id} />

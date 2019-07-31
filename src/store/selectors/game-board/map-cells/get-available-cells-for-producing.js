@@ -1,11 +1,19 @@
 import { createSelector } from 'reselect';
 
-import { getPhase } from '../../../selectors/game-board/general';
+import {
+  getPhase,
+  getCurrentPlayer
+} from '../../../selectors/game-board/general';
 import { getUnits } from '../../../selectors/game-board/units';
-import { getCurrentPlayer } from '../../../selectors/game-board/general';
+import { getPlayerProducingPoints } from '../../../selectors/playerTablets';
 
-const getAvailableCellsForProducing = (phase, units, currentPlayer) => {
-  if (phase !== 'producing') return [];
+const getAvailableCellsForProducing = (
+  phase,
+  producingPoints,
+  units,
+  currentPlayer
+) => {
+  if (phase !== 'producing' || !producingPoints) return [];
 
   return Object.keys(units).reduce((acc, id) => {
     const { owner, type, location } = units[id];
@@ -18,6 +26,7 @@ const getAvailableCellsForProducing = (phase, units, currentPlayer) => {
 
 export default createSelector(
   getPhase,
+  getPlayerProducingPoints,
   getUnits,
   getCurrentPlayer,
   getAvailableCellsForProducing
