@@ -1,14 +1,18 @@
-import { getCurrentPlayer } from '../../selectors/game-board/general';
-import getPlayerTablets from './get-player-tablets';
+import { createSelector } from 'reselect';
 
-export default function getPlayerActionCost(state) {
-  const currentPlayer = getCurrentPlayer(state);
-  const playerTablets = getPlayerTablets(state);
-  const { choosenAction } = playerTablets[currentPlayer];
+import getCurrentPlayerTablet from './get-current-player-tablet';
+
+const getPlayerActionCost = tablet => {
+  const { choosenAction } = tablet;
 
   return (
-    playerTablets[currentPlayer].actions[choosenAction] &&
-    playerTablets[currentPlayer].actions[choosenAction].cost &&
-    playerTablets[currentPlayer].actions[choosenAction].cost.type
+    tablet.actions[choosenAction] &&
+    tablet.actions[choosenAction].cost &&
+    tablet.actions[choosenAction].cost.type
   );
-}
+};
+
+export default createSelector(
+  getCurrentPlayerTablet,
+  getPlayerActionCost
+);

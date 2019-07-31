@@ -2,6 +2,10 @@ $cellWidth: 150px;
 $cellHeight: 150px;
 $cellBorder: 1px solid black;
 
+.wrap {
+  padding-bottom: 150px;
+}
+
 .cell {
   position: absolute;
   background: none;
