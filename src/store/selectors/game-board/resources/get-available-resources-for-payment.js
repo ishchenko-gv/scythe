@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 
-import { getPlayerWorkersLocation } from '../map-cells';
+import getPlayerWorkersLocation from '../map-cells/get-player-workers-location';
 import getResources from './get-resources';
-import { getPlayerActionCost } from '../../player-tablets';
-import { getPhase } from '../general';
+import getPlayerActionCost from '../../player-tablets/get-player-action-cost';
+import getPhase from '../general/get-phase';
 
 const getAvailableResourcesForPayment = (
   resources,

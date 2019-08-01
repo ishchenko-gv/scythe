@@ -1,12 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import enableResourcePayingForChoosenAction
-  from '../../store/actions/game-board/general/enable-resource-paying-for-choosen-action';
-import { getPhase } from '../../store/selectors/game-board/general';
+import enableResourcePayingForChoosenAction from '../../store/actions/game-board/general/enable-resource-paying-for-choosen-action';
+import getPhase from '../../store/selectors/game-board/general/get-phase';
 import upgradeAction from '../../store/actions/playerTablets/upgrade-action';
+import getIsEnoughResourcesForPayment from '../../store/selectors/player-tablets/get-is-enough-resources-for-payment';
 
-const Modernization = ({ onResourcePayingEnable, isModernizationAvailable, onActionUpgrade }) => {
+const Modernization = ({
+  onResourcePayingEnable,
+  isModernizationAvailable,
+  onActionUpgrade,
+  isEnoughResources
+}) => {
+  console.log(isEnoughResources);
   return (
     <>
       <button onClick={onResourcePayingEnable}>Модернизация</button>
@@ -16,7 +22,8 @@ const Modernization = ({ onResourcePayingEnable, isModernizationAvailable, onAct
 };
 
 const mapState = state => ({
-  isModernizationAvailable: getPhase(state) === 'bottomActionUpgrade'
+  isModernizationAvailable: getPhase(state) === 'bottomActionUpgrade',
+  isEnoughResources: getIsEnoughResourcesForPayment('modernization')(state)
 });
 
 const mapDispatch = dispatch => ({

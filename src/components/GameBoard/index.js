@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './gameMap.module.scss';
-import { getMapCells } from '../../store/selectors/game-board/map-cells';
+import getMapCells from '../../store/selectors/game-board/map-cells/get-map-cells';
 import Cell from './Cell';
 
 const GameBoard = ({ mapCells }) => (

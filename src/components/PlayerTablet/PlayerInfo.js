@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getCurrentPlayer } from '../../store/selectors/game-board/general';
-import { getPlayerTablets } from '../../store/selectors/player-tablets';
+import getCurrentPlayer from '../../store/selectors/game-board/general/get-current-player';
+import getPlayerTablets from '../../store/selectors/player-tablets/get-player-tablets';
 
 const PlayerInfo = ({ producePoints, movementPoints, powerPoints, money }) => {
   return (

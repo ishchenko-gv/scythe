@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPhase } from '../../store/selectors/game-board/general';
+import getPhase from '../../store/selectors/game-board/general/get-phase';
 
 const EarnBattleCards = ({ isModernizationAvailable }) => {
   return (
@@ -9,7 +9,7 @@ const EarnBattleCards = ({ isModernizationAvailable }) => {
       <button>Получить карточки вооружения</button>
       {isModernizationAvailable && <button>+</button>}
     </>
-  )
+  );
 };
 
 const mapState = state => ({

@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
-import { getUnits } from '../units';
-import { getCurrentPlayer } from '../general';
+import getUnits from '../units/get-units';
+import getCurrentPlayer from '../general/get-current-player';
 
 export default createSelector(
   getUnits,

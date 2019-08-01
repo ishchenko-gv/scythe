@@ -1,8 +1,10 @@
 import { createSelector } from 'reselect';
 
-import { getPhase, getSelectedUnit, getCurrentPlayer } from '../general';
+import getPhase from '../general/get-phase';
+import getSelectedUnit from '../general/get-selected-unit';
+import getCurrentPlayer from '../general/get-current-player';
 import getMapCells from './get-map-cells';
-import { getUnits } from '../units';
+import getUnits from '../units/get-units';
 
 const getAvailableCellsForMovement = (
   phase,

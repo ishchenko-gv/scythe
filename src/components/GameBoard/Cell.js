@@ -6,10 +6,8 @@ import produceResources from '../../store/actions/game-board/resources/produce-r
 import moveUnit from '../../store/actions/game-board/units/move-unit';
 import Units from './Units';
 import Resources from './Resources';
-import {
-  getAvailableCellsForMovement,
-  getAvailableCellsForProducing
-} from '../../store/selectors/game-board/map-cells';
+import getAvailableCellsForMovement from '../../store/selectors/game-board/map-cells/get-available-cells-for-movement';
+import getAvailableCellsForProducing from '../../store/selectors/game-board/map-cells/get-available-cells-for-producing';
 
 const types = {
   lake: 'Озеро',

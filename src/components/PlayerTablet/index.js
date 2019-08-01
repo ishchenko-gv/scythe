@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './playerTablet.module.scss';
-import { getCurrentPlayerActionsAsMatrix } from '../../store/selectors/player-tablets';
+import getCurrentPlayerActionsAsMatrix from '../../store/selectors/player-tablets/get-current-player-actions-as-matrix';
 import PlayerInfo from './PlayerInfo';
 import EarnPowerPoints from './EarnPowerPoints';
 import EarnBattleCards from './EarnBatlleCards';

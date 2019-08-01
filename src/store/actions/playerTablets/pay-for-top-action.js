@@ -1,6 +1,7 @@
 import { addPowerPoints, removeMoney } from './index';
 import { getCurrentPlayerTablet } from '../../selectors/player-tablets';
 import { getCurrentPlayer } from '../../selectors/game-board/general';
+import { setPhase } from '../game-board/general';
 
 const payForTopAction = actionId => (dispatch, getState) => {
   const state = getState();
@@ -12,6 +13,7 @@ const payForTopAction = actionId => (dispatch, getState) => {
 
   dispatch(addPowerPoints(currentPlayer, payOff.count));
   dispatch(removeMoney(currentPlayer, cost.count));
+  dispatch(setPhase('topActionComplete'));
 };
 
 export default payForTopAction;

@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {
-  getAvailableResourcesForPayment,
-  getCellResources
-} from '../../store/selectors/game-board/resources';
+import getAvailableResourcesForPayment from '../../store/selectors/game-board/resources/get-available-resources-for-payment';
+import getCellResources from '../../store/selectors/game-board/resources/get-cell-resources';
 import payForChoosenAction from '../../store/actions/game-board/resources/pay-for-choosen-action';
 
 const types = {

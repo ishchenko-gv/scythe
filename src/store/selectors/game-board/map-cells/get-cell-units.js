@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import memoize from 'lodash/memoize';
 
-import { getUnits } from '../units';
+import getUnits from '../units/get-units';
 
 export default memoize(id =>
   createSelector(

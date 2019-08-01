@@ -1,10 +1,8 @@
 import { addPayedResource, setPhase } from '../../game-board/general';
 import { removeResource } from './index';
-import {
-  getCurrentPlayer,
-  getPayedResources
-} from '../../../selectors/game-board/general';
-import { getPlayerTablets } from '../../../selectors/player-tablets';
+import getCurrentPlayer from '../../../selectors/game-board/general/get-current-player';
+import getPayedResources from '../../../selectors/game-board/general/get-payed-resources';
+import getPlayerTablets from '../../../selectors/player-tablets/get-player-tablets';
 
 const payForChoosenAction = resource => (dispatch, getState) => {
   const state = getState();

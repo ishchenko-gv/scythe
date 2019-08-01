@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getCellUnits } from '../../store/selectors/game-board/map-cells';
+import getCellUnits from '../../store/selectors/game-board/map-cells/get-cell-units';
 import selectUnit from '../../store/actions/game-board/units/select-unit';
 
 const Units = ({ units, onUnitSelect }) => (

@@ -1,11 +1,9 @@
 import { createSelector } from 'reselect';
 
-import {
-  getPhase,
-  getCurrentPlayer
-} from '../../../selectors/game-board/general';
-import { getUnits } from '../../../selectors/game-board/units';
-import { getPlayerProducingPoints } from '../../player-tablets';
+import getPhase from '../../game-board/general/get-phase';
+import getCurrentPlayer from '../../game-board/general/get-current-player';
+import getUnits from '../../../selectors/game-board/units/get-units';
+import getPlayerProducingPoints from '../../player-tablets/get-player-producing-points';
 
 const getAvailableCellsForProducing = (
   phase,
