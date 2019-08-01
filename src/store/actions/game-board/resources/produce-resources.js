@@ -3,7 +3,7 @@ import { addResource } from './index';
 import { getCurrentPlayer } from '../../../selectors/game-board/general';
 import { getMapCells } from '../../../selectors/game-board/map-cells';
 import { getUnits } from '../../../selectors/game-board/units';
-import { getPlayerTablets } from '../../../selectors/playerTablets';
+import { getPlayerTablets } from '../../../selectors/player-tablets';
 
 const produceResources = cellId => (dispatch, getState) => {
   const state = getState();

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getCurrentPlayer } from '../../store/selectors/game-board/general';
-import { getPlayerTablets } from '../../store/selectors/playerTablets';
+import { getPlayerTablets } from '../../store/selectors/player-tablets';
 
 const PlayerInfo = ({ producePoints, movementPoints, powerPoints, money }) => {
   return (

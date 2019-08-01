@@ -26,3 +26,15 @@ function makePointsAction(actionType) {
     playerId
   });
 }
+
+export const incrementActionPayoffCount = (playerId, actionId) => ({
+  type: actionTypes.INCREMENT_ACTION_PAYOFF_COUNT,
+  playerId,
+  actionId
+});
+
+export const decrementActionCostCount = (playerId, actionId) => ({
+  type: actionTypes.DECREMENT_ACTION_COST_COUNT,
+  playerId,
+  actionId
+});

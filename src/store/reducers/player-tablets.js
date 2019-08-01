@@ -9,9 +9,19 @@ const initialState = {
     money: 5,
     choosenAction: null,
     actions: {
-      gainPower: {
+      earnPowerPoints: {
         type: 'top',
-        section: 0
+        section: 0,
+        upgradePotential: 3,
+        cost: { type: 'money', count: 1 },
+        payOff: { type: 'powerPoints', count: 2 }
+      },
+      earnBattleCards: {
+        type: 'top',
+        section: 0,
+        upgradePotential: 2,
+        cost: { type: 'money', count: 1 },
+        payOff: { type: 'battleCards', count: 1 }
       },
       modernization: {
         type: 'bottom',
@@ -75,6 +85,40 @@ const playerTablets = (state = initialState, action) => {
         [action.playerId]: {
           ...state[action.playerId],
           choosenAction: action.choosenAction
+        }
+      };
+    case actionTypes.INCREMENT_ACTION_PAYOFF_COUNT:
+      return {
+        ...state,
+        [action.playerId]: {
+          ...state[action.playerId],
+          actions: {
+            ...state[action.playerId].actions,
+            [action.actionId]: {
+              ...state[action.playerId].actions[action.actionId],
+              payOff: {
+                ...state[action.playerId].actions[action.actionId].payOff,
+                count: state[action.playerId].actions[action.actionId].payOff.count + 1
+              }
+            }
+          }
+        }
+      };
+    case actionTypes.DECREMENT_ACTION_COST_COUNT:
+      return {
+        ...state,
+        [action.playerId]: {
+          ...state[action.playerId],
+          actions: {
+            ...state[action.playerId].actions,
+            [action.actionId]: {
+              ...state[action.playerId].actions[action.actionId],
+              cost: {
+                ...state[action.playerId].actions[action.actionId].cost,
+                count: state[action.playerId].actions[action.actionId].cost.count - 1
+              }
+            }
+          }
         }
       };
     default:

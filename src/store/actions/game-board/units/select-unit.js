@@ -4,7 +4,7 @@ import {
   getCurrentPlayer
 } from '../../../selectors/game-board/general';
 import { getUnits } from '../../../selectors/game-board/units';
-import { getPlayerTablets } from '../../../selectors/playerTablets';
+import { getPlayerTablets } from '../../../selectors/player-tablets';
 
 const selectUnit = unitId => (dispatch, getState) => {
   const state = getState();
@@ -15,8 +15,6 @@ const selectUnit = unitId => (dispatch, getState) => {
   const units = getUnits(state);
   const unit = units[unitId];
   const isEnemyUnit = unit.owner !== currentPlayer;
-
-  console.log(phase, currentPlayer, isEnemyUnit);
 
   if (phase !== 'movement' || !movementPoints || isEnemyUnit) return;
   console.log(unitId);

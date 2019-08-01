@@ -36,8 +36,6 @@ const Cell = ({
     onUnitMove(id);
   };
 
-  console.log(isAvailableForProducing);
-
   const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
     isAvailableForMovement ? styles['cell--isInteractive'] : ''
   }`;

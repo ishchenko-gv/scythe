@@ -1,5 +1,5 @@
 import { addPowerPoints, removeMoney } from './index';
-import { getPlayerTablets } from '../../selectors/playerTablets';
+import { getPlayerTablets } from '../../selectors/player-tablets';
 import { getCurrentPlayer } from '../../selectors/game-board/general';
 
 const gainPower = () => (dispatch, getState) => {

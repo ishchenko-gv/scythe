@@ -4,7 +4,7 @@ import {
   getCurrentPlayer,
   getPayedResources
 } from '../../../selectors/game-board/general';
-import { getPlayerTablets } from '../../../selectors/playerTablets';
+import { getPlayerTablets } from '../../../selectors/player-tablets';
 
 const payForChoosenAction = resource => (dispatch, getState) => {
   const state = getState();

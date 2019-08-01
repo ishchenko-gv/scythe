@@ -5,3 +5,5 @@ export const POWER_POINTS_REMOVE = 'players/removePowerPoints';
 export const MONEY_ADD = 'players/addMoney';
 export const MONEY_REMOVE = 'players/removeMoney';
 export const CHOOSEN_ACTION_SET = 'players/setChoosenAction';
+export const INCREMENT_ACTION_PAYOFF_COUNT = 'playerTablets/addActionPayoffCount';
+export const DECREMENT_ACTION_COST_COUNT = 'playerTablets/removeActionCostCount';

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-jest.mock('./components/GameBoard', () => () => null);
+jest.mock('./components/Desk', () => () => null);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

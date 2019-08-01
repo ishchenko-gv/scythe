@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 import { getPlayerWorkersLocation } from '../map-cells';
 import getResources from './get-resources';
-import { getPlayerActionCost } from '../../playerTablets';
+import { getPlayerActionCost } from '../../player-tablets';
 import { getPhase } from '../general';
 
 const getAvailableResourcesForPayment = (

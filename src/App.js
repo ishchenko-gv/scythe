@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Gameboard from './components/GameBoard';
+import Desk from './components/Desk';
 
 function App() {
-  return <Gameboard />;
+  return <Desk />;
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import { setPhase } from './index';
 
-const setProducingPhase = () => (dispatch, getState) => {
+const setProducingPhase = () => dispatch => {
   dispatch(setPhase('producing'));
 };
 

@@ -5,7 +5,7 @@ import {
   getCurrentPlayer
 } from '../../../selectors/game-board/general';
 import { getUnits } from '../../../selectors/game-board/units';
-import { getPlayerProducingPoints } from '../../../selectors/playerTablets';
+import { getPlayerProducingPoints } from '../../player-tablets';
 
 const getAvailableCellsForProducing = (
   phase,
