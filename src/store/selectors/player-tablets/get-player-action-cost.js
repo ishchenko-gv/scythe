@@ -3,12 +3,12 @@ import { createSelector } from 'reselect';
 import getCurrentPlayerTablet from './get-current-player-tablet';
 
 const getPlayerActionCost = tablet => {
-  const { choosenAction } = tablet;
+  const { chosenAction } = tablet;
 
   return (
-    tablet.actions[choosenAction] &&
-    tablet.actions[choosenAction].cost &&
-    tablet.actions[choosenAction].cost.type
+    tablet.actions[chosenAction] &&
+    tablet.actions[chosenAction].cost &&
+    tablet.actions[chosenAction].cost.type
   );
 };
 

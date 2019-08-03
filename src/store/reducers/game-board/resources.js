@@ -41,7 +41,7 @@ const initialState = [
 
 const resources = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.RESOURCE_ADD:
+    case actionTypes.RESOURCES_ADD:
       return [...state, ...action.resource];
     case actionTypes.RESOURCE_REMOVE:
       const resourceIndex = state.findIndex(

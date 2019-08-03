@@ -4,20 +4,20 @@ import getCurrentPlayer from '../../../selectors/game-board/general/get-current-
 import getPayedResources from '../../../selectors/game-board/general/get-payed-resources';
 import getPlayerTablets from '../../../selectors/player-tablets/get-player-tablets';
 
-const payForChoosenAction = resource => (dispatch, getState) => {
+const payForChosenAction = resource => (dispatch, getState) => {
   const state = getState();
   const currentPlayer = getCurrentPlayer(state);
   const payedResources = getPayedResources(state);
   const playerTablets = getPlayerTablets(state);
-  const { choosenAction } = playerTablets[currentPlayer];
-  const requiredResources = choosenAction
-    ? playerTablets[currentPlayer].actions[choosenAction].cost
+  const { chosenAction } = playerTablets[currentPlayer];
+  const requiredResources = chosenAction
+    ? playerTablets[currentPlayer].actions[chosenAction].cost
     : {};
 
   dispatch(addPayedResource(resource.type));
   dispatch(removeResource(resource));
   if (requiredResources.count - payedResources[requiredResources.type] === 1)
-    dispatch(setPhase(choosenAction));
+    dispatch(setPhase(chosenAction));
 };
 
-export default payForChoosenAction;
+export default payForChosenAction;

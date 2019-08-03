@@ -7,7 +7,9 @@ import selectUnit from '../../store/actions/game-board/units/select-unit';
 const Units = ({ units, onUnitSelect }) => (
   <ul>
     {units.map(unit => (
-      <li onClick={() => onUnitSelect(unit.id)}>{unit.type}</li>
+      <li key={unit.id} onClick={() => onUnitSelect(unit.id)}>
+        {unit.type}
+      </li>
     ))}
   </ul>
 );

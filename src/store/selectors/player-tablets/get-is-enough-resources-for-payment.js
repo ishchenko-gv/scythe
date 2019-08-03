@@ -7,15 +7,17 @@ import getCurrentPlayerResources from '../game-board/resources/get-current-playe
 const getIsEnoughResourcesForPayment = actionId => (tablet, resources) => {
   const { cost, type } = tablet.actions[actionId];
 
+  if (!cost) return true;
+
   switch (type) {
     case 'top':
       const availablePoints = tablet[cost.type];
       return availablePoints >= cost.count;
     case 'bottom':
-      const availableResources = resources.filter(
-        resource => resource.type === cost.type
+      return (
+        resources.filter(resource => resource.type === cost.type).length >=
+        cost.count
       );
-      return availableResources.length >= cost.count;
     default:
       return false;
   }

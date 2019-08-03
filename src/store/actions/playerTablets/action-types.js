@@ -1,9 +1,9 @@
-export const DECREMENT_PRODUCE_POINTS = 'players/decrementProducePoints';
-export const DECREMENT_MOVEMENT_POINTS = 'players/decrementMovementPoints';
-export const POWER_POINTS_ADD = 'players/addPowerPoints';
-export const POWER_POINTS_REMOVE = 'players/removePowerPoints';
-export const MONEY_ADD = 'players/addMoney';
-export const MONEY_REMOVE = 'players/removeMoney';
-export const CHOOSEN_ACTION_SET = 'players/setChoosenAction';
-export const INCREMENT_ACTION_PAYOFF_COUNT = 'playerTablets/addActionPayoffCount';
-export const DECREMENT_ACTION_COST_COUNT = 'playerTablets/removeActionCostCount';
+export const SET_CHOSEN_ACTION = 'players/setChosenAction';
+export const INCREMENT_ACTION_PAYOFF_COUNT =
+  'playerTablets/addActionPayoffCount';
+export const DECREMENT_ACTION_COST_COUNT =
+  'playerTablets/removeActionCostCount';
+export const ADD_POINTS = 'playersTablet/addPoints';
+export const REMOVE_POINTS = 'playersTablet/removePoints';
+export const DECREMENT_POINTS = 'playersTablet/decrementPoints';
+export const ADD_BATTLE_CARD = 'playersTablet/addBattleCard';

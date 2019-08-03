@@ -1,18 +1,19 @@
-import { decrementProducePoints } from '../../playerTablets';
-import { addResource } from './index';
-import { getCurrentPlayer } from '../../../selectors/game-board/general';
+import { decrementPoints } from '../../playerTablets';
+import { addResources } from './index';
 import { getMapCells } from '../../../selectors/game-board/map-cells';
 import { getUnits } from '../../../selectors/game-board/units';
-import { getPlayerTablets } from '../../../selectors/player-tablets';
+import { setPhase } from '../general';
+import { getCurrentPlayer } from '../../../selectors/game-board/general';
+import { getCurrentPlayerTablet } from '../../../selectors/player-tablets';
 
 const produceResources = cellId => (dispatch, getState) => {
   const state = getState();
-  const currentPlayer = getCurrentPlayer(state);
-  const playerTablets = getPlayerTablets(state);
-  const producePoints = playerTablets[currentPlayer].producePoints;
+  const tablet = getCurrentPlayerTablet(state);
+  const { producingPoints } = tablet;
   const units = getUnits(state);
+  const currentPlayer = getCurrentPlayer(state);
 
-  if (!producePoints) return;
+  if (!producingPoints) return;
 
   const cellType = getMapCells(state)[cellId].type;
   const workersCount = Object.keys(units).filter(
@@ -23,8 +24,10 @@ const produceResources = cellId => (dispatch, getState) => {
     location: cellId
   });
 
-  dispatch(decrementProducePoints(currentPlayer));
-  dispatch(addResource(producedResource));
+  dispatch(decrementPoints(currentPlayer, 'producingPoints'));
+  dispatch(addResources(producedResource));
+
+  if (producingPoints === 1) dispatch(setPhase('topActionComplete'));
 };
 
 export default produceResources;

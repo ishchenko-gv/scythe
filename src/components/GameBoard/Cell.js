@@ -11,11 +11,11 @@ import getAvailableCellsForProducing from '../../store/selectors/game-board/map-
 
 const types = {
   lake: 'Озеро',
-  iron: 'Железо',
-  wood: 'Дерево',
-  food: 'Еда',
+  mountains: 'Горы',
+  forest: 'Лес',
   farm: 'Ферма',
-  oil: 'Нефть',
+  village: 'Деревня',
+  tundra: 'Тундра',
   base: 'База',
   factory: 'Фабрика'
 };

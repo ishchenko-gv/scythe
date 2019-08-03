@@ -1,31 +1,30 @@
 import * as actionTypes from './action-types';
 
-export const decrementProducePoints = makePointsAction(
-  actionTypes.DECREMENT_PRODUCE_POINTS
-);
-export const decrementMovementPoints = makePointsAction(
-  actionTypes.DECREMENT_MOVEMENT_POINTS
-);
-export const addPowerPoints = makePointsAction(actionTypes.POWER_POINTS_ADD);
-export const removePowerPoints = makePointsAction(
-  actionTypes.POWER_POINTS_REMOVE
-);
-export const addMoney = makePointsAction(actionTypes.MONEY_ADD);
-export const removeMoney = makePointsAction(actionTypes.MONEY_REMOVE);
-
-export const setChoosenAction = (playerId, choosenAction) => ({
-  type: actionTypes.CHOOSEN_ACTION_SET,
+export const addPoints = (playerId, pointsType, count) => ({
+  type: actionTypes.ADD_POINTS,
   playerId,
-  choosenAction
+  pointsType,
+  count
 });
 
-function makePointsAction(actionType) {
-  return (playerId, count) => ({
-    type: actionType,
-    count: count || null,
-    playerId
-  });
-}
+export const removePoints = (playerId, pointsType, count) => ({
+  type: actionTypes.REMOVE_POINTS,
+  playerId,
+  pointsType,
+  count
+});
+
+export const decrementPoints = (playerId, pointsType) => ({
+  type: actionTypes.DECREMENT_POINTS,
+  playerId,
+  pointsType
+});
+
+export const setChosenAction = (playerId, chosenAction) => ({
+  type: actionTypes.SET_CHOSEN_ACTION,
+  playerId,
+  chosenAction
+});
 
 export const incrementActionPayoffCount = (playerId, actionId) => ({
   type: actionTypes.INCREMENT_ACTION_PAYOFF_COUNT,
@@ -37,4 +36,10 @@ export const decrementActionCostCount = (playerId, actionId) => ({
   type: actionTypes.DECREMENT_ACTION_COST_COUNT,
   playerId,
   actionId
+});
+
+export const addBattleCard = (playerId, powerPoints) => ({
+  type: actionTypes.ADD_BATTLE_CARD,
+  playerId,
+  powerPoints
 });

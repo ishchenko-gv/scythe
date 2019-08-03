@@ -3,40 +3,41 @@ import { connect } from 'react-redux';
 
 import getPhase from '../../store/selectors/game-board/general/get-phase';
 import upgradeAction from '../../store/actions/playerTablets/upgrade-action';
-import payForTopAction from '../../store/actions/playerTablets/pay-for-top-action';
+import executePlayerAction from '../../store/actions/playerTablets/execute-player-action';
 import getIsEnoughResourcesForPayment from '../../store/selectors/player-tablets/get-is-enough-resources-for-payment';
 
-const EarnPowerPoints = ({
+const TopAction = ({
   isModernizationAvailable,
   onActionUpgrade,
-  onActionPay,
-  isAvailable
+  onActionExecute,
+  isAvailable,
+  label
 }) => (
   <>
-    <button onClick={onActionPay} disabled={!isAvailable}>
-      Получить очки вооружения
+    <button onClick={onActionExecute} disabled={!isAvailable}>
+      {label}
     </button>
     {isModernizationAvailable && <button onClick={onActionUpgrade}>+</button>}
   </>
 );
 
-const mapState = state => {
+const mapState = (state, ownProps) => {
   const phase = getPhase(state);
 
   return {
     isModernizationAvailable: phase === 'modernization',
     isAvailable:
       phase === 'actionChoose' &&
-      getIsEnoughResourcesForPayment('earnPowerPoints')(state)
+      getIsEnoughResourcesForPayment(ownProps.id)(state)
   };
 };
 
-const mapDispatch = dispatch => ({
-  onActionUpgrade: () => dispatch(upgradeAction('earnPowerPoints')),
-  onActionPay: () => dispatch(payForTopAction('earnPowerPoints'))
+const mapDispatch = (dispatch, ownProps) => ({
+  onActionUpgrade: () => dispatch(upgradeAction(ownProps.id)),
+  onActionExecute: () => dispatch(executePlayerAction(ownProps.id))
 });
 
 export default connect(
   mapState,
   mapDispatch
-)(EarnPowerPoints);
+)(TopAction);

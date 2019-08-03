@@ -3,11 +3,14 @@ import * as actionTypes from '../actions/playerTablets/action-types';
 const initialState = {
   nordic: {
     battleCards: [],
-    producePoints: 2,
-    movementPoints: 2,
+    producingPoints: 0,
+    movementPoints: 0,
     powerPoints: 4,
+    reputationPoints: 3,
+    tradingPoints: 0,
     money: 5,
-    choosenAction: null,
+    chosenAction: null,
+    previousTurnAction: null,
     actions: {
       earnPowerPoints: {
         type: 'top',
@@ -26,39 +29,62 @@ const initialState = {
       modernization: {
         type: 'bottom',
         section: 0,
+        upgradePotential: 2,
         cost: { type: 'oil', count: 3 },
-        payoff: { type: 'money', count: 3 }
+        payOff: { type: 'money', count: 3 }
       },
       producing: {
         type: 'top',
-        section: 1
+        section: 1,
+        upgradePotential: 3,
+        payOff: { type: 'producingPoints', count: 2 }
       },
       mechDeploy: {
         type: 'bottom',
-        section: 1
+        section: 1,
+        upgradePotential: 1,
+        cost: { type: 'iron', count: 3 },
+        payOff: { type: 'money', count: 2 }
       },
       movement: {
         type: 'top',
-        section: 2
+        section: 2,
+        upgradePotential: 3,
+        payOff: { type: 'movementPoints', count: 2 }
       },
       building: {
         type: 'bottom',
-        section: 2
+        section: 2,
+        upgradePotential: 2,
+        cost: { type: 'wood', count: 3 },
+        payOff: { type: 'money', count: 1 }
       },
       trading: {
         type: 'top',
-        section: 3
+        section: 3,
+        cost: { type: 'money', count: 1 },
+        payOff: { type: 'tradingPoints', count: 2 }
+      },
+      earnReputation: {
+        type: 'top',
+        section: 3,
+        upgradePotential: 2,
+        cost: { type: 'money', count: 1 },
+        payOff: { type: 'reputationPoints', count: 1 }
       },
       mobilization: {
         type: 'bottom',
-        section: 3
+        section: 3,
+        upgradePotential: 2,
+        cost: { type: 'food', count: 4 },
+        payOff: { type: 'money', count: 2 }
       }
     }
   },
   rusvet: {
     color: 'red',
     battleCards: [],
-    producePoints: 2,
+    producingPoints: 2,
     movementPoints: 2,
     powerPoints: 4,
     money: 5
@@ -67,24 +93,29 @@ const initialState = {
 
 const playerTablets = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.DECREMENT_PRODUCE_POINTS:
-      return decrementPoints(state, action, 'producePoints');
-    case actionTypes.DECREMENT_MOVEMENT_POINTS:
-      return decrementPoints(state, action, 'movementPoints');
-    case actionTypes.POWER_POINTS_ADD:
-      return addPoints(state, action, 'powerPoints');
-    case actionTypes.POWER_POINTS_REMOVE:
-      return removePoints(state, action, 'powerPoints');
-    case actionTypes.MONEY_ADD:
-      return addPoints(state, action, 'money');
-    case actionTypes.MONEY_REMOVE:
-      return removePoints(state, action, 'money');
-    case actionTypes.CHOOSEN_ACTION_SET:
+    case actionTypes.ADD_POINTS:
+      return addPoints(state, action);
+    case actionTypes.REMOVE_POINTS:
+      return removePoints(state, action);
+    case actionTypes.DECREMENT_POINTS:
+      return decrementPoints(state, action);
+    case actionTypes.ADD_BATTLE_CARD:
       return {
         ...state,
         [action.playerId]: {
           ...state[action.playerId],
-          choosenAction: action.choosenAction
+          battleCards: [
+            ...state[action.playerId].battleCards,
+            action.powerPoints
+          ]
+        }
+      };
+    case actionTypes.SET_CHOSEN_ACTION:
+      return {
+        ...state,
+        [action.playerId]: {
+          ...state[action.playerId],
+          chosenAction: action.chosenAction
         }
       };
     case actionTypes.INCREMENT_ACTION_PAYOFF_COUNT:
@@ -98,7 +129,9 @@ const playerTablets = (state = initialState, action) => {
               ...state[action.playerId].actions[action.actionId],
               payOff: {
                 ...state[action.playerId].actions[action.actionId].payOff,
-                count: state[action.playerId].actions[action.actionId].payOff.count + 1
+                count:
+                  state[action.playerId].actions[action.actionId].payOff.count +
+                  1
               }
             }
           }
@@ -115,7 +148,8 @@ const playerTablets = (state = initialState, action) => {
               ...state[action.playerId].actions[action.actionId],
               cost: {
                 ...state[action.playerId].actions[action.actionId].cost,
-                count: state[action.playerId].actions[action.actionId].cost.count - 1
+                count:
+                  state[action.playerId].actions[action.actionId].cost.count - 1
               }
             }
           }
@@ -126,32 +160,34 @@ const playerTablets = (state = initialState, action) => {
   }
 };
 
-function addPoints(state, action, pointsType) {
+function addPoints(state, action) {
   return {
     ...state,
     [action.playerId]: {
       ...state[action.playerId],
-      [pointsType]: state[action.playerId][pointsType] + action.count
+      [action.pointsType]:
+        state[action.playerId][action.pointsType] + action.count
     }
   };
 }
 
-function removePoints(state, action, pointsType) {
+function removePoints(state, action) {
   return {
     ...state,
     [action.playerId]: {
       ...state[action.playerId],
-      [pointsType]: state[action.playerId][pointsType] - action.count
+      [action.pointsType]:
+        state[action.playerId][action.pointsType] - action.count
     }
   };
 }
 
-function decrementPoints(state, action, pointsType) {
+function decrementPoints(state, action) {
   return {
     ...state,
     [action.playerId]: {
       ...state[action.playerId],
-      [pointsType]: state[action.playerId][pointsType] - 1
+      [action.pointsType]: state[action.playerId][action.pointsType] - 1
     }
   };
 }

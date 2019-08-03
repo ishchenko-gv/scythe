@@ -1,16 +1,20 @@
-import { setSelectedUnit } from '../general';
+import { setSelectedUnit, setPhase } from '../general';
 import { changeUnitLocation } from './index';
-import { decrementMovementPoints } from '../../playerTablets';
+import { decrementPoints } from '../../playerTablets';
 import { getUnits } from '../../../selectors/game-board/units';
 import {
-  getCurrentPlayer,
-  getSelectedUnit
+  getSelectedUnit,
+  getCurrentPlayer
 } from '../../../selectors/game-board/general';
+import { getCurrentPlayerTablet } from '../../../selectors/player-tablets';
 
 const moveUnit = destinationCellId => (dispatch, getState) => {
   const state = getState();
   const selectedUnitId = getSelectedUnit(state);
   const selectedUnit = getUnits(state)[selectedUnitId];
+  const currentPlayer = getCurrentPlayer(state);
+  const tablet = getCurrentPlayerTablet(state);
+  const { movementPoints } = tablet;
 
   if (!selectedUnit) return;
 
@@ -18,11 +22,11 @@ const moveUnit = destinationCellId => (dispatch, getState) => {
 
   if (destinationCellId === sourceCellId) return;
 
-  const currentPlayer = getCurrentPlayer(state);
-
   dispatch(changeUnitLocation(selectedUnitId, destinationCellId));
   dispatch(setSelectedUnit(null));
-  dispatch(decrementMovementPoints(currentPlayer));
+  dispatch(decrementPoints(currentPlayer, 'movementPoints'));
+
+  if (movementPoints === 1) dispatch(setPhase('topActionComplete'));
 };
 
 export default moveUnit;
