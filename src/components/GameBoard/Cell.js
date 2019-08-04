@@ -8,14 +8,18 @@ import Units from './Units';
 import Resources from './Resources';
 import getAvailableCellsForMovement from '../../store/selectors/game-board/map-cells/get-available-cells-for-movement';
 import getAvailableCellsForProducing from '../../store/selectors/game-board/map-cells/get-available-cells-for-producing';
+import OilBarrelIcon from '../icons/OilBarrelIcon';
+import WoodIcon from '../icons/WoodIcon';
+import IronIcon from '../icons/IronIcon';
+import FarmIcon from '../icons/FarmIcon';
 
 const types = {
   lake: 'Озеро',
-  mountains: 'Горы',
-  forest: 'Лес',
-  farm: 'Ферма',
+  mountains: <IronIcon />,
+  forest: <WoodIcon />,
+  farm: <FarmIcon />,
   village: 'Деревня',
-  tundra: 'Тундра',
+  tundra: <OilBarrelIcon />,
   base: 'База',
   factory: 'Фабрика'
 };
@@ -28,27 +32,25 @@ const Cell = ({
   onResourcesProduce,
   onUnitMove
 }) => {
-  const handleCellClick = () => {
-    if (!isAvailableForMovement) return;
-
-    onUnitMove(id);
-  };
-
-  const classNames = `${styles.cell} ${styles[`cell__${id}`]} ${
-    isAvailableForMovement ? styles['cell--isInteractive'] : ''
-  }`;
+  const classNames = `${styles.cell} ${styles[`cell__${id}`]}`;
 
   return (
-    <div onClick={handleCellClick} className={classNames}>
+    <div className={classNames}>
       <div>
-        {types[type]}{' '}
         {isAvailableForProducing && (
-          <button onClick={() => onResourcesProduce(id)}>+</button>
+          <button onClick={() => onResourcesProduce(id)}>{types[type]}</button>
         )}
+        {!isAvailableForProducing && types[type]}
       </div>
       <br />
       <Units cellId={id} />
       <Resources cellId={id} />
+      {isAvailableForMovement && (
+        <button
+          className={styles.movementButton}
+          onClick={() => onUnitMove(id)}
+        />
+      )}
     </div>
   );
 };

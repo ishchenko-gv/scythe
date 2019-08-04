@@ -15,12 +15,12 @@ const produceResources = cellId => (dispatch, getState) => {
 
   if (!producingPoints) return;
 
-  const cellType = getMapCells(state)[cellId].type;
+  const resourceType = getMapCells(state)[cellId].resourceType;
   const workersCount = Object.keys(units).filter(
     unit => units[unit].location === cellId && units[unit].type === 'worker'
   ).length;
   const producedResource = Array(workersCount).fill({
-    type: cellType,
+    type: resourceType,
     location: cellId
   });
 

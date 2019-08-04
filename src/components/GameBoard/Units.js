@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import cn from 'classnames';
 
+import styles from './gameMap.module.scss';
 import getCellUnits from '../../store/selectors/game-board/map-cells/get-cell-units';
 import selectUnit from '../../store/actions/game-board/units/select-unit';
+import { getSelectedUnit } from '../../store/selectors/game-board/general';
+import WorkerIcon from '../icons/WorkerIcon';
+import HeroIcon from '../icons/HeroIcon';
 
-const Units = ({ units, onUnitSelect }) => (
-  <ul>
-    {units.map(unit => (
-      <li key={unit.id} onClick={() => onUnitSelect(unit.id)}>
-        {unit.type}
-      </li>
-    ))}
-  </ul>
-);
-
-const mapState = (state, ownProps) => {
-  return {
-    units: getCellUnits(ownProps.cellId)(state)
-  };
+const iconTypes = {
+  hero: <HeroIcon />,
+  worker: <WorkerIcon />
 };
+
+const Units = ({ units, selectedUnit, onUnitSelect }) => {
+  return (
+    <Fragment>
+      {units.map(unit => {
+        const unitClasses = cn([styles.unit], {
+          [styles['unit--isSelected']]: selectedUnit === unit.id
+        });
+
+        return (
+          <button
+            className={unitClasses}
+            key={unit.id}
+            onClick={() => onUnitSelect(unit.id)}
+          >
+            {iconTypes[unit.type]}
+          </button>
+        );
+      })}
+    </Fragment>
+  );
+};
+
+const mapState = (state, ownProps) => ({
+  units: getCellUnits(ownProps.cellId)(state),
+  selectedUnit: getSelectedUnit(state)
+});
 
 const mapDispatch = dispatch => ({
   onUnitSelect: unit => dispatch(selectUnit(unit))
