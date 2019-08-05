@@ -8,10 +8,12 @@ const PlayerInfo = ({
   producingPoints,
   movementPoints,
   powerPoints,
-  money
+  money,
+  currentPlayer
 }) => {
   return (
     <ul>
+      <li>Сейчас ходит: {currentPlayer}</li>
       <li>Очки производства: {producingPoints}</li>
       <li>Очки передвижения: {movementPoints}</li>
       <li>Очки вооружения: {powerPoints}</li>
@@ -28,7 +30,8 @@ const mapState = state => {
     producingPoints: playerTablets[currentPlayer].producingPoints,
     movementPoints: playerTablets[currentPlayer].movementPoints,
     powerPoints: playerTablets[currentPlayer].powerPoints,
-    money: playerTablets[currentPlayer].money
+    money: playerTablets[currentPlayer].money,
+    currentPlayer: getCurrentPlayer(state)
   };
 };
 

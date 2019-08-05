@@ -6,6 +6,8 @@ import getCurrentPlayerActionsAsMatrix from '../../store/selectors/player-tablet
 import PlayerInfo from './PlayerInfo';
 import TopAction from './TopAction';
 import BottomAction from './BottomAction';
+import getIsEndOfTurnAvailable from '../../store/selectors/game-board/general/get-is-end-of-turn-available';
+import setNextPlayerAsCurrent from '../../store/actions/game-board/general/set-next-player-as-current';
 
 const labelsDictionary = {
   earnPowerPoints: 'Получить очки вооружения',
@@ -20,7 +22,11 @@ const labelsDictionary = {
   mobilization: 'Мобилизация'
 };
 
-const PlayerTablet = ({ playerActions }) => (
+const PlayerTablet = ({
+  playerActions,
+  isEndOFTurnAvailable,
+  onNextPlayerSet
+}) => (
   <div className={styles.wrap}>
     <div className={styles.actionsWrap}>
       {playerActions.map((actions, index) => (
@@ -47,12 +53,22 @@ const PlayerTablet = ({ playerActions }) => (
       ))}
     </div>
     <PlayerInfo />
-    <button>Завершить ход</button>
+    <button onClick={onNextPlayerSet} disabled={!isEndOFTurnAvailable}>
+      Завершить ход
+    </button>
   </div>
 );
 
 const mapState = state => ({
-  playerActions: getCurrentPlayerActionsAsMatrix(state)
+  playerActions: getCurrentPlayerActionsAsMatrix(state),
+  isEndOFTurnAvailable: getIsEndOfTurnAvailable(state)
 });
 
-export default connect(mapState)(PlayerTablet);
+const mapDispatch = dispatch => ({
+  onNextPlayerSet: () => dispatch(setNextPlayerAsCurrent())
+});
+
+export default connect(
+  mapState,
+  mapDispatch
+)(PlayerTablet);

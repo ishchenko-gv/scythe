@@ -1,6 +1,7 @@
 import * as actionTypes from '../../actions/game-board/general/action-types';
 
 const initialState = {
+  players: ['nordic', 'rusvet'],
   currentPlayer: 'nordic',
   phase: 'actionChoose',
   selectedUnit: null,
@@ -29,6 +30,12 @@ const general = (state = initialState, action) => {
             ? state.payedResources[action.resource] + 1
             : 1
         }
+      };
+    }
+    case actionTypes.SET_CURRENT_PLAYER: {
+      return {
+        ...state,
+        currentPlayer: action.player
       };
     }
     default:

@@ -14,3 +14,8 @@ export const addPayedResource = resource => ({
   type: actionTypes.PAYED_RESOURCE_ADD,
   resource
 });
+
+export const setCurrentPlayer = player => ({
+  type: actionTypes.SET_CURRENT_PLAYER,
+  player
+});
