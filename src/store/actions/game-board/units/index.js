@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from './action-types';
 
 export const removeUnit = (cellId, unitIndex) => ({
   type: actionTypes.REMOVE_UNIT,
