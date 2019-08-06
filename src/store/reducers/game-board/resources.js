@@ -1,4 +1,4 @@
-import * as actionTypes from '../../actions/game-board/resources/actionTypes';
+import * as actionTypes from '../../actions/game-board/resources/action-types';
 
 const initialState = [
   {

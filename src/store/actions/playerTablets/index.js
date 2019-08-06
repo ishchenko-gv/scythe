@@ -20,12 +20,6 @@ export const decrementPoints = (playerId, pointsType) => ({
   pointsType
 });
 
-export const setChosenAction = (playerId, chosenAction) => ({
-  type: actionTypes.SET_CHOSEN_ACTION,
-  playerId,
-  chosenAction
-});
-
 export const incrementActionPayoffCount = (playerId, actionId) => ({
   type: actionTypes.INCREMENT_ACTION_PAYOFF_COUNT,
   playerId,
@@ -42,4 +36,10 @@ export const addBattleCard = (playerId, powerPoints) => ({
   type: actionTypes.ADD_BATTLE_CARD,
   playerId,
   powerPoints
+});
+
+export const setPreviousTurnPlayerAction = (playerId, action) => ({
+  type: actionTypes.SET_PREVIOUS_TURN_PLAYER_ACTION,
+  playerId,
+  action
 });

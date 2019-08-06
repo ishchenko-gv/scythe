@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import styles from './playerTablet.module.scss';
 import getCurrentPlayerActionsAsMatrix from '../../store/selectors/player-tablets/get-current-player-actions-as-matrix';
 import PlayerInfo from './PlayerInfo';
-import TopAction from './TopAction';
-import BottomAction from './BottomAction';
+import TabletAction from './TabletAction';
 import getIsEndOfTurnAvailable from '../../store/selectors/game-board/general/get-is-end-of-turn-available';
 import setNextPlayerAsCurrent from '../../store/actions/game-board/general/set-next-player-as-current';
 
@@ -23,6 +22,7 @@ const labelsDictionary = {
 };
 
 const PlayerTablet = ({
+  chosenAction,
   playerActions,
   isEndOFTurnAvailable,
   onNextPlayerSet
@@ -33,18 +33,22 @@ const PlayerTablet = ({
         <div key={index} className={styles.actionsSection}>
           <div>
             {actions.top.map(action => (
-              <TopAction
+              <TabletAction
                 key={action}
                 id={action}
+                type={'top'}
+                isSelected={action === chosenAction}
                 label={labelsDictionary[action]}
               />
             ))}
           </div>
           <div>
             {actions.bottom.map(action => (
-              <BottomAction
+              <TabletAction
                 key={action}
                 id={action}
+                type={'bottom'}
+                isSelected={action === chosenAction}
                 label={labelsDictionary[action]}
               />
             ))}
@@ -60,6 +64,7 @@ const PlayerTablet = ({
 );
 
 const mapState = state => ({
+  chosenAction: state.gameBoard.general.chosenAction,
   playerActions: getCurrentPlayerActionsAsMatrix(state),
   isEndOFTurnAvailable: getIsEndOfTurnAvailable(state)
 });

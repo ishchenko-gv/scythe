@@ -19,3 +19,8 @@ export const setCurrentPlayer = player => ({
   type: actionTypes.SET_CURRENT_PLAYER,
   player
 });
+
+export const setChosenAction = action => ({
+  type: actionTypes.SET_CHOSEN_ACTION,
+  action
+});

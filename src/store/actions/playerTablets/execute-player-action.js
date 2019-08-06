@@ -1,20 +1,15 @@
-import {
-  addPoints,
-  removePoints,
-  addBattleCard,
-  setChosenAction
-} from './index';
+import { addPoints, removePoints, addBattleCard } from './index';
 import { getCurrentPlayerTablet } from '../../selectors/player-tablets';
 import { getCurrentPlayer } from '../../selectors/game-board/general';
-import { setPhase } from '../game-board/general';
+import { setPhase, setChosenAction } from '../game-board/general';
 
-const payForTopAction = actionId => (dispatch, getState) => {
+const executePlayerAction = actionId => (dispatch, getState) => {
   const state = getState();
   const currentPlayer = getCurrentPlayer(state);
   const tablet = getCurrentPlayerTablet(state);
   const { cost, payOff } = tablet.actions[actionId];
 
-  dispatch(setChosenAction(currentPlayer, actionId));
+  dispatch(setChosenAction(actionId));
 
   switch (actionId) {
     case 'earnPowerPoints':
@@ -56,4 +51,4 @@ const payForTopAction = actionId => (dispatch, getState) => {
   }
 };
 
-export default payForTopAction;
+export default executePlayerAction;

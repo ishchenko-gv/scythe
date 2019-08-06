@@ -5,6 +5,7 @@ const initialState = {
   currentPlayer: 'nordic',
   phase: 'actionChoose',
   selectedUnit: null,
+  chosenAction: null,
   payedResources: {}
 };
 
@@ -36,6 +37,12 @@ const general = (state = initialState, action) => {
       return {
         ...state,
         currentPlayer: action.player
+      };
+    }
+    case actionTypes.SET_CHOSEN_ACTION: {
+      return {
+        ...state,
+        chosenAction: action.action
       };
     }
     default:

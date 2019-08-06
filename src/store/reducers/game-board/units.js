@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 
-import * as actionTypes from '../../actions/game-board/units/actionTypes';
+import * as actionTypes from '../../actions/game-board/units/action-types';
 
 const initialState = {
   [uniqid()]: {

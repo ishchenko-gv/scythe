@@ -9,7 +9,7 @@ const payForChosenAction = resource => (dispatch, getState) => {
   const currentPlayer = getCurrentPlayer(state);
   const payedResources = getPayedResources(state);
   const playerTablets = getPlayerTablets(state);
-  const { chosenAction } = playerTablets[currentPlayer];
+  const { chosenAction } = state.gameBoard.general;
   const requiredResources = chosenAction
     ? playerTablets[currentPlayer].actions[chosenAction].cost
     : {};

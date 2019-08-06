@@ -1,4 +1,4 @@
-import cells from '../../../data/mapCells';
+import cells from '../../../data/map-сells';
 
 const initialState = cells;
 
