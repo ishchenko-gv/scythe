@@ -3,6 +3,11 @@ import getNextPlayer from '../../../selectors/game-board/general/get-next-player
 import { getCurrentPlayer } from '../../../selectors/game-board/general';
 import { setPreviousTurnPlayerAction } from '../../playerTablets';
 
+/**
+ * Transfer control to the next player
+ *
+ * @return {function}
+ */
 const setNextPlayerAsCurrent = () => (dispatch, getState) => {
   const state = getState();
   const currentPlayer = getCurrentPlayer(state);

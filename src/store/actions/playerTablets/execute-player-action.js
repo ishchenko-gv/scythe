@@ -3,6 +3,11 @@ import { getCurrentPlayerTablet } from '../../selectors/player-tablets';
 import { getCurrentPlayer } from '../../selectors/game-board/general';
 import { setPhase, setChosenAction } from '../game-board/general';
 
+/**
+ * Execute chosen action scenario
+ *
+ * @param {string} actionId
+ */
 const executePlayerAction = actionId => (dispatch, getState) => {
   const state = getState();
   const currentPlayer = getCurrentPlayer(state);

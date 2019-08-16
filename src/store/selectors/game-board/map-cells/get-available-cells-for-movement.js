@@ -6,6 +6,17 @@ import getCurrentPlayer from '../general/get-current-player';
 import getMapCells from './get-map-cells';
 import getUnits from '../units/get-units';
 
+/**
+ * Get all available cell ids for movement action
+ *
+ * @param {string} phase
+ * @param {string} currentPlayer
+ * @param {string} selectedUnitId
+ * @param {array} units
+ * @param {array} cells
+ *
+ * @return {array}
+ */
 const getAvailableCellsForMovement = (
   phase,
   currentPlayer,

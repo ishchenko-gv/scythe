@@ -5,6 +5,16 @@ import getCurrentPlayer from '../../game-board/general/get-current-player';
 import getUnits from '../../../selectors/game-board/units/get-units';
 import getPlayerProducingPoints from '../../player-tablets/get-player-producing-points';
 
+/**
+ * Get all available cell ids for producing action
+ *
+ * @param {string} phase
+ * @param {string} producingPoints
+ * @param {array} units
+ * @param {string} currentPlayer
+ *
+ * @return {array}
+ */
 const getAvailableCellsForProducing = (
   phase,
   producingPoints,

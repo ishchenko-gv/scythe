@@ -8,6 +8,14 @@ import {
 } from '../../../selectors/game-board/general';
 import { getCurrentPlayerTablet } from '../../../selectors/player-tablets';
 
+/**
+ * Set new loaction for selected unit
+ * and set the next phase if movement points are over
+ *
+ * @param {string} destinationCellId
+ *
+ * @return {function}
+ */
 const moveUnit = destinationCellId => (dispatch, getState) => {
   const state = getState();
   const selectedUnitId = getSelectedUnit(state);

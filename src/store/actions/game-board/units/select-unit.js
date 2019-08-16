@@ -7,6 +7,13 @@ import {
 import { getUnits } from '../../../selectors/game-board/units';
 import { getCurrentPlayerTablet } from '../../../selectors/player-tablets';
 
+/**
+ * Select unit for player's action
+ *
+ * @param {string} unitId
+ *
+ * @return {function}
+ */
 const selectUnit = unitId => (dispatch, getState) => {
   const state = getState();
   const phase = getPhase(state);

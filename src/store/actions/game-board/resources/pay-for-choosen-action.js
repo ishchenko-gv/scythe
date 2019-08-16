@@ -4,6 +4,16 @@ import getCurrentPlayer from '../../../selectors/game-board/general/get-current-
 import getPayedResources from '../../../selectors/game-board/general/get-payed-resources';
 import getPlayerTablets from '../../../selectors/player-tablets/get-player-tablets';
 
+/**
+ * Remove resource from player's cell, add it to paid resources buffer
+ * and set the next phase if the price for the action is paid in full
+ *
+ * @param {object} resource
+ *  @prop {string} type
+ *  @prop {string} location
+ *
+ * @return {function}
+ */
 const payForChosenAction = resource => (dispatch, getState) => {
   const state = getState();
   const currentPlayer = getCurrentPlayer(state);

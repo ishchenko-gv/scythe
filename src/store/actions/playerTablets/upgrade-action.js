@@ -3,6 +3,11 @@ import { getCurrentPlayer } from '../../selectors/game-board/general';
 import { decrementActionCostCount, incrementActionPayoffCount} from './index';
 import { setPhase } from '../game-board/general';
 
+/**
+ * Upgrade action during modernization action
+ *
+ * @param {string} actionId
+ */
 const upgradeAction = actionId => (dispatch, getState) => {
   const state = getState();
   const { type } = getCurrentPlayerActions(state)[actionId];
